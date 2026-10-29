@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interfaces — Core Java Programming</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-slug="interfaces">
+
+<header class="hero hero-sm">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Core Java Programming</a>
+    <span class="sep">›</span>
+    <span>Interfaces</span>
+  </nav>
+  <h1>Interfaces</h1>
+  <p>11 programs. Click Copy, paste into Notepad, save as <b>Main.java</b>, then run <b>javac Main.java</b> and <b>java Main</b> in cmd.</p>
+</header>
+
+<main class="wrap">
+  <div class="toolbar">
+    <a class="back" href="index.html">← All topics</a>
+    <input id="search" type="search" placeholder="Search programs..." aria-label="Search programs" autocomplete="off">
+    <span id="resultCount" class="result-count"></span>
+  </div>
+  <section id="programList" class="program-list" aria-label="Programs"></section>
+  <p id="noMatch" class="no-match" hidden>No programs match your search.</p>
+</main>
+
+<footer>
+  Core Java Programming · Practice Programs<br>
+  Project by - Avneesh Sharma 7091/24
+</footer>
+
+<!--
+  HOW TO EDIT: each program below is one <script type="text/plain"> block.
+  Change the title in data-title="..." and the code between the tags.
+  Code is written as plain text (no escaping needed). Do not write the closing script tag inside code.
+-->
+<script type="text/plain" class="program-src" data-num="1" data-title="Write a Java program to create an interface Shape with the getArea() method. Create three classes Rectangle, Circle, and Triangle that implement the Shape interface. Implement the getArea() method for each of the three classes.">interface Shape {
+    double getArea();
+}
+
+class Rectangle implements Shape {
+    private double length;
+    private double width;
+
+    Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    public double getArea() {
+        return length * width;
+    }
+}
+
+class Circle implements Shape {
+    private double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Triangle implements Shape {
+    private double base;
+    private double height;
+
+    Triangle(double base, double height) {
+        this.base = base;
+        this.height = height;
+    }
+
+    public double getArea() {
+        return 0.5 * base * height;
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Shape rectangle = new Rectangle(10, 5);
+        Shape circle = new Circle(7);
+        Shape triangle = new Triangle(8, 6);
+
+        System.out.printf("Rectangle Area: %.2f%n", rectangle.getArea());
+        System.out.printf("Circle Area: %.2f%n", circle.getArea());
+        System.out.printf("Triangle Area: %.2f%n", triangle.getArea());
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="2" data-title="Write a Java program to create a Animal interface with a method called bark() that takes no arguments and returns void. Create a Dog class that implements Animal and overrides speak() to print &quot;Dog is barking&quot;.">interface Animal {
+    void bark();
+}
+
+class Dog implements Animal {
+    public void bark() {
+        speak();
+    }
+
+    public void speak() {
+        System.out.println("Dog is barking");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Animal dog = new Dog();
+        dog.bark();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="3" data-title="Write a Java program to create an interface Flyable with a method called fly_obj(). Create three classes Spacecraft, Airplane, and Helicopter that implement the Flyable interface. Implement the fly_obj() method for each of the three classes.">interface Flyable {
+    void fly_obj();
+}
+
+class Spacecraft implements Flyable {
+    public void fly_obj() {
+        System.out.println("Spacecraft is flying");
+    }
+}
+
+class Airplane implements Flyable {
+    public void fly_obj() {
+        System.out.println("Airplane is flying");
+    }
+}
+
+class Helicopter implements Flyable {
+    public void fly_obj() {
+        System.out.println("Helicopter is flying");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Flyable spacecraft = new Spacecraft();
+        Flyable airplane = new Airplane();
+        Flyable helicopter = new Helicopter();
+
+        spacecraft.fly_obj();
+        airplane.fly_obj();
+        helicopter.fly_obj();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="4" data-title="Write a Java programming to create a banking system with three classes - Bank, Account, SavingsAccount, and CurrentAccount. The bank should have a list of accounts and methods for adding them. Accounts should be an interface with methods to deposit, withdraw, calculate interest, and view balances. SavingsAccount and CurrentAccount should implement the Account interface and have their own unique methods.">import java.util.ArrayList;
+import java.util.List;
+
+interface Account {
+    void deposit(double amount);
+    void withdraw(double amount);
+    double calculateInterest();
+    void viewBalance();
+}
+
+class SavingsAccount implements Account {
+    private String accountHolder;
+    private double balance;
+    private double interestRate;
+
+    SavingsAccount(String accountHolder, double balance, double interestRate) {
+        this.accountHolder = accountHolder;
+        this.balance = balance;
+        this.interestRate = interestRate;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        } else {
+            System.out.println("Invalid deposit amount");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient balance or invalid amount");
+        }
+    }
+
+    public double calculateInterest() {
+        return balance * interestRate / 100;
+    }
+
+    public void viewBalance() {
+        System.out.printf("%s's Savings Balance: %.2f%n", accountHolder, balance);
+    }
+
+    public void addInterest() {
+        balance += calculateInterest();
+    }
+}
+
+class CurrentAccount implements Account {
+    private String accountHolder;
+    private double balance;
+    private double overdraftLimit;
+
+    CurrentAccount(String accountHolder, double balance, double overdraftLimit) {
+        this.accountHolder = accountHolder;
+        this.balance = balance;
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        } else {
+            System.out.println("Invalid deposit amount");
+        }
+    }
+
+    public void withdraw(double amount) {
+        if (amount > 0 && balance - amount >= -overdraftLimit) {
+            balance -= amount;
+        } else {
+            System.out.println("Overdraft limit exceeded or invalid amount");
+        }
+    }
+
+    public double calculateInterest() {
+        return 0;
+    }
+
+    public void viewBalance() {
+        System.out.printf("%s's Current Balance: %.2f%n", accountHolder, balance);
+    }
+
+    public void showOverdraftLimit() {
+        System.out.printf("Overdraft Limit: %.2f%n", overdraftLimit);
+    }
+}
+
+class Bank {
+    private List<Account> accounts = new ArrayList<>();
+
+    public void addAccount(Account account) {
+        accounts.add(account);
+    }
+
+    public void showAllBalances() {
+        for (Account account : accounts) {
+            account.viewBalance();
+        }
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Bank bank = new Bank();
+
+        SavingsAccount savings = new SavingsAccount("Aman", 10000, 5);
+        CurrentAccount current = new CurrentAccount("Riya", 5000, 2000);
+
+        bank.addAccount(savings);
+        bank.addAccount(current);
+
+        savings.deposit(2000);
+        savings.withdraw(1000);
+        System.out.printf("Savings Interest: %.2f%n", savings.calculateInterest());
+        savings.addInterest();
+
+        current.withdraw(6000);
+        current.showOverdraftLimit();
+
+        bank.showAllBalances();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="5" data-title="Write a Java program to create an interface Resizable with methods resizeWidth(int width) and resizeHeight(int height) that allow an object to be resized. Create a class Rectangle that implements the Resizable interface and implements the resize methods.">interface Resizable {
+    void resizeWidth(int width);
+    void resizeHeight(int height);
+}
+
+class Rectangle implements Resizable {
+    private int width;
+    private int height;
+
+    Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public void resizeWidth(int width) {
+        if (width > 0) {
+            this.width = width;
+        }
+    }
+
+    public void resizeHeight(int height) {
+        if (height > 0) {
+            this.height = height;
+        }
+    }
+
+    public void display() {
+        System.out.println("Width: " + width);
+        System.out.println("Height: " + height);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(10, 5);
+        rectangle.display();
+
+        rectangle.resizeWidth(20);
+        rectangle.resizeHeight(15);
+
+        rectangle.display();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="6" data-title="Write a Java program to create an interface Drawable with a method draw() that takes no arguments and returns void. Create three classes Circle, Rectangle, and Triangle that implement the Drawable interface and override the draw() method to draw their respective shapes.">interface Drawable {
+    void draw();
+}
+
+class Circle implements Drawable {
+    public void draw() {
+        System.out.println("Drawing a Circle");
+    }
+}
+
+class Rectangle implements Drawable {
+    public void draw() {
+        System.out.println("Drawing a Rectangle");
+    }
+}
+
+class Triangle implements Drawable {
+    public void draw() {
+        System.out.println("Drawing a Triangle");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Drawable circle = new Circle();
+        Drawable rectangle = new Rectangle();
+        Drawable triangle = new Triangle();
+
+        circle.draw();
+        rectangle.draw();
+        triangle.draw();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="7" data-title="Write a Java program to create an interface Sortable with a method sort() that sorts an array of integers in ascending order. Create two classes BubbleSort and SelectionSort that implement the Sortable interface and provide their own implementations of the sort() method.">import java.util.Arrays;
+
+interface Sortable {
+    void sort();
+}
+
+class BubbleSort implements Sortable {
+    private int[] array;
+
+    BubbleSort(int[] array) {
+        this.array = array.clone();
+    }
+
+    public void sort() {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+
+        System.out.println("Bubble Sort: " + Arrays.toString(array));
+    }
+}
+
+class SelectionSort implements Sortable {
+    private int[] array;
+
+    SelectionSort(int[] array) {
+        this.array = array.clone();
+    }
+
+    public void sort() {
+        for (int i = 0; i < array.length - 1; i++) {
+            int minIndex = i;
+
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[minIndex]) {
+                    minIndex = j;
+                }
+            }
+
+            int temp = array[i];
+            array[i] = array[minIndex];
+            array[minIndex] = temp;
+        }
+
+        System.out.println("Selection Sort: " + Arrays.toString(array));
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        int[] numbers = {64, 25, 12, 22, 11};
+
+        Sortable bubbleSort = new BubbleSort(numbers);
+        Sortable selectionSort = new SelectionSort(numbers);
+
+        bubbleSort.sort();
+        selectionSort.sort();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="8" data-title="Write a Java program to create an interface Playable with a method play() that takes no arguments and returns void. Create three classes Football, Volleyball, and Basketball that implement the Playable interface and override the play() method to play the respective sports.">interface Playable {
+    void play();
+}
+
+class Football implements Playable {
+    public void play() {
+        System.out.println("Playing Football");
+    }
+}
+
+class Volleyball implements Playable {
+    public void play() {
+        System.out.println("Playing Volleyball");
+    }
+}
+
+class Basketball implements Playable {
+    public void play() {
+        System.out.println("Playing Basketball");
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Playable football = new Football();
+        Playable volleyball = new Volleyball();
+        Playable basketball = new Basketball();
+
+        football.play();
+        volleyball.play();
+        basketball.play();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="9" data-title="Write a Java program to create an interface Searchable with a method search(String keyword) that searches for a given keyword in a text document. Create two classes Document and WebPage that implement the Searchable interface and provide their own implementations of the search() method.">interface Searchable {
+    boolean search(String keyword);
+}
+
+class Document implements Searchable {
+    private String content;
+
+    Document(String content) {
+        this.content = content;
+    }
+
+    public boolean search(String keyword) {
+        return content.toLowerCase().contains(keyword.toLowerCase());
+    }
+}
+
+class WebPage implements Searchable {
+    private String content;
+
+    WebPage(String content) {
+        this.content = content;
+    }
+
+    public boolean search(String keyword) {
+        return content.toLowerCase().contains(keyword.toLowerCase());
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        Searchable document = new Document("Java programming is easy to learn");
+        Searchable webPage = new WebPage("This website contains Java tutorials");
+
+        System.out.println(document.search("programming"));
+        System.out.println(webPage.search("Java"));
+        System.out.println(webPage.search("Python"));
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="10" data-title="Write a Java program to create an interface Encryptable with methods encrypt (String data) and decrypt (String encryptedData) that define encryption and decryption operations. Create two classes AES and RSA that implement the Encryptable interface and provide their own encryption and decryption algorithms.">import javax.crypto.Cipher;
+import javax.crypto.KeyGenerator;
+import javax.crypto.SecretKey;
+import javax.crypto.spec.GCMParameterSpec;
+import java.security.KeyPair;
+import java.security.KeyPairGenerator;
+import java.security.SecureRandom;
+import java.util.Arrays;
+import java.util.Base64;
+
+interface Encryptable {
+    String encrypt(String data) throws Exception;
+    String decrypt(String encryptedData) throws Exception;
+}
+
+class AES implements Encryptable {
+    private SecretKey key;
+    private SecureRandom random = new SecureRandom();
+
+    AES() throws Exception {
+        KeyGenerator generator = KeyGenerator.getInstance("AES");
+        generator.init(256);
+        key = generator.generateKey();
+    }
+
+    public String encrypt(String data) throws Exception {
+        byte[] iv = new byte[12];
+        random.nextBytes(iv);
+
+        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+        cipher.init(Cipher.ENCRYPT_MODE, key, new GCMParameterSpec(128, iv));
+
+        byte[] encrypted = cipher.doFinal(data.getBytes("UTF-8"));
+        byte[] combined = new byte[iv.length + encrypted.length];
+
+        System.arraycopy(iv, 0, combined, 0, iv.length);
+        System.arraycopy(encrypted, 0, combined, iv.length, encrypted.length);
+
+        return Base64.getEncoder().encodeToString(combined);
+    }
+
+    public String decrypt(String encryptedData) throws Exception {
+        byte[] combined = Base64.getDecoder().decode(encryptedData);
+        byte[] iv = Arrays.copyOfRange(combined, 0, 12);
+        byte[] encrypted = Arrays.copyOfRange(combined, 12, combined.length);
+
+        Cipher cipher = Cipher.getInstance("AES/GCM/NoPadding");
+        cipher.init(Cipher.DECRYPT_MODE, key, new GCMParameterSpec(128, iv));
+
+        return new String(cipher.doFinal(encrypted), "UTF-8");
+    }
+}
+
+class RSA implements Encryptable {
+    private KeyPair keyPair;
+
+    RSA() throws Exception {
+        KeyPairGenerator generator = KeyPairGenerator.getInstance("RSA");
+        generator.initialize(2048);
+        keyPair = generator.generateKeyPair();
+    }
+
+    public String encrypt(String data) throws Exception {
+        Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
+        cipher.init(Cipher.ENCRYPT_MODE, keyPair.getPublic());
+        byte[] encrypted = cipher.doFinal(data.getBytes("UTF-8"));
+        return Base64.getEncoder().encodeToString(encrypted);
+    }
+
+    public String decrypt(String encryptedData) throws Exception {
+        Cipher cipher = Cipher.getInstance("RSA/ECB/OAEPWithSHA-256AndMGF1Padding");
+        cipher.init(Cipher.DECRYPT_MODE, keyPair.getPrivate());
+        byte[] decrypted = cipher.doFinal(Base64.getDecoder().decode(encryptedData));
+        return new String(decrypted, "UTF-8");
+    }
+}
+
+class Main {
+    public static void main(String[] args) throws Exception {
+        String message = "Hello Java";
+
+        Encryptable aes = new AES();
+        String aesEncrypted = aes.encrypt(message);
+        System.out.println("AES Decrypted: " + aes.decrypt(aesEncrypted));
+
+        Encryptable rsa = new RSA();
+        String rsaEncrypted = rsa.encrypt(message);
+        System.out.println("RSA Decrypted: " + rsa.decrypt(rsaEncrypted));
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="11" data-title="Write a Java program to create an interface Sortable with a method sort (int[] array) that sorts an array of integers in descending order. Create two classes QuickSort and MergeSort that implement the Sortable interface and provide their own implementations of the sort() method.">import java.util.Arrays;
+
+interface Sortable {
+    void sort(int[] array);
+}
+
+class QuickSort implements Sortable {
+    public void sort(int[] array) {
+        quickSort(array, 0, array.length - 1);
+    }
+
+    private void quickSort(int[] array, int low, int high) {
+        if (low < high) {
+            int pivotIndex = partition(array, low, high);
+            quickSort(array, low, pivotIndex - 1);
+            quickSort(array, pivotIndex + 1, high);
+        }
+    }
+
+    private int partition(int[] array, int low, int high) {
+        int pivot = array[high];
+        int i = low - 1;
+
+        for (int j = low; j < high; j++) {
+            if (array[j] >= pivot) {
+                i++;
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+
+        int temp = array[i + 1];
+        array[i + 1] = array[high];
+        array[high] = temp;
+
+        return i + 1;
+    }
+}
+
+class MergeSort implements Sortable {
+    public void sort(int[] array) {
+        if (array.length > 1) {
+            mergeSort(array, 0, array.length - 1);
+        }
+    }
+
+    private void mergeSort(int[] array, int left, int right) {
+        if (left < right) {
+            int middle = left + (right - left) / 2;
+            mergeSort(array, left, middle);
+            mergeSort(array, middle + 1, right);
+            merge(array, left, middle, right);
+        }
+    }
+
+    private void merge(int[] array, int left, int middle, int right) {
+        int[] temp = new int[right - left + 1];
+        int i = left;
+        int j = middle + 1;
+        int k = 0;
+
+        while (i <= middle && j <= right) {
+            if (array[i] >= array[j]) {
+                temp[k++] = array[i++];
+            } else {
+                temp[k++] = array[j++];
+            }
+        }
+
+        while (i <= middle) {
+            temp[k++] = array[i++];
+        }
+
+        while (j <= right) {
+            temp[k++] = array[j++];
+        }
+
+        System.arraycopy(temp, 0, array, left, temp.length);
+    }
+}
+
+class Main {
+    public static void main(String[] args) {
+        int[] first = {34, 12, 56, 9, 78, 23};
+        int[] second = first.clone();
+
+        Sortable quickSort = new QuickSort();
+        Sortable mergeSort = new MergeSort();
+
+        quickSort.sort(first);
+        mergeSort.sort(second);
+
+        System.out.println(Arrays.toString(first));
+        System.out.println(Arrays.toString(second));
+    }
+}</script>
+
+<script src="js/topic.js"></script>
+</body>
+</html>

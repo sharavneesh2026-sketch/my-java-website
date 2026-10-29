@@ -1,0 +1,1220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inheritance — Core Java Programming</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-slug="inheritance">
+
+<header class="hero hero-sm">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Core Java Programming</a>
+    <span class="sep">›</span>
+    <span>Inheritance</span>
+  </nav>
+  <h1>Inheritance</h1>
+  <p>26 programs. Click Copy, paste into Notepad, save the file with the name of the class that has the <b>main</b> method (for example <b>Program1.java</b>), then run <b>javac Program1.java</b> and <b>java Program1</b> in cmd.</p>
+</header>
+
+<main class="wrap">
+  <div class="toolbar">
+    <a class="back" href="index.html">← All topics</a>
+    <input id="search" type="search" placeholder="Search programs..." aria-label="Search programs" autocomplete="off">
+    <span id="resultCount" class="result-count"></span>
+  </div>
+  <section id="programList" class="program-list" aria-label="Programs"></section>
+  <p id="noMatch" class="no-match" hidden>No programs match your search.</p>
+</main>
+
+<footer>
+  Core Java Programming · Practice Programs<br>
+  Project by - Avneesh Sharma 7091/24
+</footer>
+
+<!--
+  HOW TO EDIT: each program below is one <script type="text/plain"> block.
+  Change the title in data-title="..." and the code between the tags.
+  Code is written as plain text (no escaping needed). Do not write the closing script tag inside code.
+-->
+<script type="text/plain" class="program-src" data-num="1" data-title="Write a Java program to create a class called Animal with a method called makeSound(). Create a subclass called Cat that overrides the makeSound() method to bark.">class Animal {
+    void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void makeSound() {
+        System.out.println("Cat barks");
+    }
+}
+
+class Program1 {
+    public static void main(String[] args) {
+        Cat cat = new Cat();
+        cat.makeSound();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="2" data-title="Write a Java program to create a class called Vehicle with a method called drive(). Create a subclass called Car that overrides the drive() method to print &quot;Repairing a car&quot;.">class Vehicle {
+    void drive() {
+        System.out.println("Vehicle is driving");
+    }
+}
+
+class Car extends Vehicle {
+    @Override
+    void drive() {
+        System.out.println("Repairing a car");
+    }
+}
+
+class Program2 {
+    public static void main(String[] args) {
+        Car car = new Car();
+        car.drive();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="3" data-title="Write a Java program to create a class called Shape with a method called getArea(). Create a subclass called Rectangle that overrides the getArea() method to calculate the area of a rectangle.">class Shape {
+    double getArea() {
+        return 0;
+    }
+}
+
+class Rectangle extends Shape {
+    double length;
+    double width;
+
+    Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    double getArea() {
+        return length * width;
+    }
+}
+
+class Program3 {
+    public static void main(String[] args) {
+        Rectangle rectangle = new Rectangle(10, 5);
+        System.out.println("Area of rectangle: " + rectangle.getArea());
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="4" data-title="Write a Java program to create a class called Employee with methods called work() and getSalary(). Create a subclass called HRManager that overrides the work() method and adds a new method called addEmployee().">class Employee {
+    void work() {
+        System.out.println("Employee is working");
+    }
+
+    double getSalary() {
+        return 30000;
+    }
+}
+
+class HRManager extends Employee {
+    @Override
+    void work() {
+        System.out.println("HR Manager is managing employees");
+    }
+
+    void addEmployee(String name) {
+        System.out.println(name + " has been added");
+    }
+}
+
+class Program4 {
+    public static void main(String[] args) {
+        HRManager hr = new HRManager();
+        hr.work();
+        System.out.println("Salary: " + hr.getSalary());
+        hr.addEmployee("Rahul");
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="5" data-title="Write a Java program to create a class known as BankAccount with methods called deposit() and withdraw(). Create a subclass called SavingsAccount that overrides the withdraw() method to prevent withdrawals if the account balance falls below one hundred.">class BankAccount {
+    protected double balance;
+
+    BankAccount(double balance) {
+        this.balance = balance;
+    }
+
+    void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+        }
+    }
+
+    void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+        }
+    }
+
+    double getBalance() {
+        return balance;
+    }
+}
+
+class SavingsAccount extends BankAccount {
+    SavingsAccount(double balance) {
+        super(balance);
+    }
+
+    @Override
+    void withdraw(double amount) {
+        if (amount <= 0) {
+            System.out.println("Invalid withdrawal amount");
+        } else if (balance - amount < 100) {
+            System.out.println("Withdrawal denied: Minimum balance of 100 required");
+        } else {
+            balance -= amount;
+            System.out.println("Withdrawal successful");
+        }
+    }
+}
+
+class Program5 {
+    public static void main(String[] args) {
+        SavingsAccount account = new SavingsAccount(500);
+        account.deposit(200);
+        account.withdraw(550);
+        System.out.println("Balance: " + account.getBalance());
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="6" data-title="Write a Java program to create a class called Animal with a method named move(). Create a subclass called Cheetah that overrides the move() method to run.">class Animal {
+    void move() {
+        System.out.println("Animal moves");
+    }
+}
+
+class Cheetah extends Animal {
+    @Override
+    void move() {
+        System.out.println("Cheetah runs fast");
+    }
+}
+
+class Program6 {
+    public static void main(String[] args) {
+        Cheetah cheetah = new Cheetah();
+        cheetah.move();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="7" data-title="Write a Java program to create a class known as Person with methods called getFirstName() and getLastName(). Create a subclass called Employee that adds a new method named getEmployeeId() and overrides the getLastName() method to include the employee&#x27;s job title.">class Person {
+    String firstName;
+    String lastName;
+
+    Person(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    String getFirstName() {
+        return firstName;
+    }
+
+    String getLastName() {
+        return lastName;
+    }
+}
+
+class Employee extends Person {
+    int employeeId;
+    String jobTitle;
+
+    Employee(String firstName, String lastName, int employeeId, String jobTitle) {
+        super(firstName, lastName);
+        this.employeeId = employeeId;
+        this.jobTitle = jobTitle;
+    }
+
+    int getEmployeeId() {
+        return employeeId;
+    }
+
+    @Override
+    String getLastName() {
+        return lastName + " (" + jobTitle + ")";
+    }
+}
+
+class Program7 {
+    public static void main(String[] args) {
+        Employee employee = new Employee("Aman", "Sharma", 101, "Developer");
+
+        System.out.println("First name: " + employee.getFirstName());
+        System.out.println("Last name: " + employee.getLastName());
+        System.out.println("Employee ID: " + employee.getEmployeeId());
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="8" data-title="Write a Java program to create a class called Shape with methods called getPerimeter() and getArea(). Create a subclass called Circle that overrides the getPerimeter() and getArea() methods to calculate the area and perimeter of a circle.">class Shape {
+    double getPerimeter() {
+        return 0;
+    }
+
+    double getArea() {
+        return 0;
+    }
+}
+
+class Circle extends Shape {
+    double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double getPerimeter() {
+        return 2 * Math.PI * radius;
+    }
+
+    @Override
+    double getArea() {
+        return Math.PI * radius * radius;
+    }
+}
+
+class Program8 {
+    public static void main(String[] args) {
+        Circle circle = new Circle(5);
+
+        System.out.println("Area: " + circle.getArea());
+        System.out.println("Perimeter: " + circle.getPerimeter());
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="9" data-title="Write a Java program to create a vehicle class hierarchy. The base class should be Vehicle, with subclasses Truck, Car and Motorcycle. Each subclass should have properties such as make, model, year, and fuel type. Implement methods for calculating fuel efficiency, distance traveled, and maximum speed.">class Vehicle {
+    String make;
+    String model;
+    int year;
+    String fuelType;
+    double fuelEfficiency;
+    double fuelUsed;
+    double maxSpeed;
+
+    Vehicle(String make, String model, int year, String fuelType,
+            double fuelEfficiency, double fuelUsed, double maxSpeed) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.fuelType = fuelType;
+        this.fuelEfficiency = fuelEfficiency;
+        this.fuelUsed = fuelUsed;
+        this.maxSpeed = maxSpeed;
+    }
+
+    double calculateFuelEfficiency() {
+        return fuelEfficiency;
+    }
+
+    double calculateDistanceTraveled() {
+        return fuelEfficiency * fuelUsed;
+    }
+
+    double getMaxSpeed() {
+        return maxSpeed;
+    }
+
+    void displayInfo() {
+        System.out.println("Make: " + make);
+        System.out.println("Model: " + model);
+        System.out.println("Year: " + year);
+        System.out.println("Fuel type: " + fuelType);
+        System.out.println("Fuel efficiency: " + calculateFuelEfficiency() + " km/l");
+        System.out.println("Distance traveled: " + calculateDistanceTraveled() + " km");
+        System.out.println("Maximum speed: " + getMaxSpeed() + " km/h");
+    }
+}
+
+class Truck extends Vehicle {
+    Truck(String make, String model, int year, String fuelType,
+          double efficiency, double fuelUsed, double maxSpeed) {
+        super(make, model, year, fuelType, efficiency, fuelUsed, maxSpeed);
+    }
+}
+
+class Car extends Vehicle {
+    Car(String make, String model, int year, String fuelType,
+        double efficiency, double fuelUsed, double maxSpeed) {
+        super(make, model, year, fuelType, efficiency, fuelUsed, maxSpeed);
+    }
+}
+
+class Motorcycle extends Vehicle {
+    Motorcycle(String make, String model, int year, String fuelType,
+               double efficiency, double fuelUsed, double maxSpeed) {
+        super(make, model, year, fuelType, efficiency, fuelUsed, maxSpeed);
+    }
+}
+
+class Program9 {
+    public static void main(String[] args) {
+        Vehicle truck = new Truck("Tata", "Prima", 2024, "Diesel", 5, 40, 100);
+        Vehicle car = new Car("Honda", "City", 2023, "Petrol", 18, 20, 180);
+        Vehicle motorcycle = new Motorcycle("Honda", "Shine", 2022, "Petrol", 55, 5, 110);
+
+        System.out.println("TRUCK");
+        truck.displayInfo();
+
+        System.out.println("\nCAR");
+        car.displayInfo();
+
+        System.out.println("\nMOTORCYCLE");
+        motorcycle.displayInfo();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="10" data-title="Write a Java program that creates a class hierarchy for employees of a company. The base class should be Employee, with subclasses Manager, Developer, and Programmer. Each subclass should have properties such as name, address, salary, and job title. Implement methods for calculating bonuses, generating performance reports, and managing projects.">class Employee {
+    String name;
+    String address;
+    double salary;
+    String jobTitle;
+
+    Employee(String name, String address, double salary, String jobTitle) {
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.jobTitle = jobTitle;
+    }
+
+    double calculateBonus() {
+        return salary * 0.05;
+    }
+
+    void generatePerformanceReport() {
+        System.out.println(name + " is performing duties as " + jobTitle);
+    }
+
+    void manageProjects() {
+        System.out.println(name + " is working on assigned tasks");
+    }
+
+    void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Address: " + address);
+        System.out.println("Salary: " + salary);
+        System.out.println("Job title: " + jobTitle);
+        System.out.println("Bonus: " + calculateBonus());
+    }
+}
+
+class Manager extends Employee {
+    Manager(String name, String address, double salary) {
+        super(name, address, salary, "Manager");
+    }
+
+    @Override
+    double calculateBonus() {
+        return salary * 0.20;
+    }
+
+    @Override
+    void manageProjects() {
+        System.out.println(name + " manages and coordinates projects");
+    }
+}
+
+class Developer extends Employee {
+    Developer(String name, String address, double salary) {
+        super(name, address, salary, "Developer");
+    }
+
+    @Override
+    double calculateBonus() {
+        return salary * 0.15;
+    }
+
+    @Override
+    void manageProjects() {
+        System.out.println(name + " develops and maintains software projects");
+    }
+}
+
+class Programmer extends Employee {
+    Programmer(String name, String address, double salary) {
+        super(name, address, salary, "Programmer");
+    }
+
+    @Override
+    double calculateBonus() {
+        return salary * 0.10;
+    }
+
+    @Override
+    void manageProjects() {
+        System.out.println(name + " writes and tests program code");
+    }
+}
+
+class Program10 {
+    public static void main(String[] args) {
+        Employee manager = new Manager("Aman", "Chandigarh", 60000);
+        Employee developer = new Developer("Riya", "Delhi", 50000);
+        Employee programmer = new Programmer("Rahul", "Mumbai", 40000);
+
+        manager.displayInfo();
+        manager.generatePerformanceReport();
+        manager.manageProjects();
+
+        System.out.println();
+
+        developer.displayInfo();
+        developer.generatePerformanceReport();
+        developer.manageProjects();
+
+        System.out.println();
+
+        programmer.displayInfo();
+        programmer.generatePerformanceReport();
+        programmer.manageProjects();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="11" data-title="Create a program showing an example of the `super` keyword.">class Parent {
+    int number = 10;
+
+    void display() {
+        System.out.println("Parent class method");
+    }
+}
+
+class Child extends Parent {
+    int number = 20;
+
+    @Override
+    void display() {
+        super.display();
+        System.out.println("Parent variable: " + super.number);
+        System.out.println("Child variable: " + number);
+    }
+}
+
+class Program11 {
+    public static void main(String[] args) {
+        Child child = new Child();
+        child.display();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="12" data-title="Create a program showing an example of a `super` function (calling a superclass constructor).">class Parent {
+    Parent(String message) {
+        System.out.println("Parent constructor: " + message);
+    }
+}
+
+class Child extends Parent {
+    Child() {
+        super("Hello from parent");
+        System.out.println("Child constructor called");
+    }
+}
+
+class Program12 {
+    public static void main(String[] args) {
+        Child child = new Child();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="13" data-title="Create a program showing an example of method overriding.">class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Program13 {
+    public static void main(String[] args) {
+        Animal animal = new Animal();
+        Dog dog = new Dog();
+
+        animal.sound();
+        dog.sound();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="14" data-title="Create a program showing an example of dynamic method dispatch.">class Animal {
+    void sound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+class Program14 {
+    public static void main(String[] args) {
+        Animal animal;
+
+        animal = new Dog();
+        animal.sound();
+
+        animal = new Cat();
+        animal.sound();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="15" data-title="Write a Java program to create an abstract class Animal with an abstract method called sound(). Create subclasses Lion and Tiger that extend the Animal class and implement the sound() method to make a specific sound for each animal.">abstract class Animal {
+    abstract void sound();
+}
+
+class Lion extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Lion roars");
+    }
+}
+
+class Tiger extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Tiger growls");
+    }
+}
+
+class Program15 {
+    public static void main(String[] args) {
+        Animal lion = new Lion();
+        Animal tiger = new Tiger();
+
+        lion.sound();
+        tiger.sound();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="16" data-title="Write a Java program to create an abstract class Shape with abstract methods calculateArea() and calculatePerimeter(). Create subclasses Circle and Triangle that extend the Shape class and implement the respective methods to calculate the area and perimeter of each shape.">abstract class Shape {
+    abstract double calculateArea();
+    abstract double calculatePerimeter();
+}
+
+class Circle extends Shape {
+    double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+class Triangle extends Shape {
+    double a;
+    double b;
+    double c;
+
+    Triangle(double a, double b, double c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    @Override
+    double calculatePerimeter() {
+        return a + b + c;
+    }
+
+    @Override
+    double calculateArea() {
+        double s = calculatePerimeter() / 2;
+        double value = s * (s - a) * (s - b) * (s - c);
+
+        if (a <= 0 || b <= 0 || c <= 0 ||
+            a + b <= c || a + c <= b || b + c <= a) {
+            throw new IllegalArgumentException("Invalid triangle sides");
+        }
+
+        return Math.sqrt(value);
+    }
+}
+
+class Program16 {
+    public static void main(String[] args) {
+        Shape circle = new Circle(5);
+        Shape triangle = new Triangle(3, 4, 5);
+
+        System.out.println("Circle area: " + circle.calculateArea());
+        System.out.println("Circle perimeter: " + circle.calculatePerimeter());
+
+        System.out.println("Triangle area: " + triangle.calculateArea());
+        System.out.println("Triangle perimeter: " + triangle.calculatePerimeter());
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="17" data-title="Write a Java program to create an abstract class BankAccount with abstract methods deposit() and withdraw(). Create subclasses SavingsAccount and CurrentAccount that extend the BankAccount class and implement the respective methods to handle deposits and withdrawals for each account type.">abstract class BankAccount {
+    protected double balance;
+
+    BankAccount(double balance) {
+        this.balance = balance;
+    }
+
+    abstract void deposit(double amount);
+    abstract void withdraw(double amount);
+
+    double getBalance() {
+        return balance;
+    }
+}
+
+class SavingsAccount extends BankAccount {
+    SavingsAccount(double balance) {
+        super(balance);
+    }
+
+    @Override
+    void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Savings deposit successful");
+        } else {
+            System.out.println("Invalid deposit amount");
+        }
+    }
+
+    @Override
+    void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Savings withdrawal successful");
+        } else {
+            System.out.println("Savings withdrawal failed");
+        }
+    }
+}
+
+class CurrentAccount extends BankAccount {
+    private final double overdraftLimit;
+
+    CurrentAccount(double balance, double overdraftLimit) {
+        super(balance);
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    @Override
+    void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Current account deposit successful");
+        } else {
+            System.out.println("Invalid deposit amount");
+        }
+    }
+
+    @Override
+    void withdraw(double amount) {
+        if (amount > 0 && balance - amount >= -overdraftLimit) {
+            balance -= amount;
+            System.out.println("Current account withdrawal successful");
+        } else {
+            System.out.println("Withdrawal exceeds overdraft limit");
+        }
+    }
+}
+
+class Program17 {
+    public static void main(String[] args) {
+        SavingsAccount savings = new SavingsAccount(1000);
+        savings.deposit(500);
+        savings.withdraw(200);
+        System.out.println("Savings balance: " + savings.getBalance());
+
+        CurrentAccount current = new CurrentAccount(1000, 500);
+        current.withdraw(1300);
+        System.out.println("Current balance: " + current.getBalance());
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="18" data-title="Write a Java program to create an abstract class Animal with abstract methods eat() and sleep(). Create subclasses Lion, Tiger, and Deer that extend the Animal class and implement the eat() and sleep() methods differently based on their specific behavior.">abstract class Animal {
+    abstract void eat();
+    abstract void sleep();
+}
+
+class Lion extends Animal {
+    @Override
+    void eat() {
+        System.out.println("Lion eats meat");
+    }
+
+    @Override
+    void sleep() {
+        System.out.println("Lion rests in its den");
+    }
+}
+
+class Tiger extends Animal {
+    @Override
+    void eat() {
+        System.out.println("Tiger hunts and eats meat");
+    }
+
+    @Override
+    void sleep() {
+        System.out.println("Tiger sleeps in the forest");
+    }
+}
+
+class Deer extends Animal {
+    @Override
+    void eat() {
+        System.out.println("Deer eats grass and leaves");
+    }
+
+    @Override
+    void sleep() {
+        System.out.println("Deer rests in a safe place");
+    }
+}
+
+class Program18 {
+    public static void main(String[] args) {
+        Animal lion = new Lion();
+        Animal tiger = new Tiger();
+        Animal deer = new Deer();
+
+        lion.eat();
+        lion.sleep();
+
+        tiger.eat();
+        tiger.sleep();
+
+        deer.eat();
+        deer.sleep();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="19" data-title="Write a Java program to create an abstract class Employee with abstract methods calculateSalary() and displayInfo(). Create subclasses Manager and Programmer that extend the Employee class and implement the respective methods to calculate salary and display information for each role.">abstract class Employee {
+    String name;
+
+    Employee(String name) {
+        this.name = name;
+    }
+
+    abstract double calculateSalary();
+    abstract void displayInfo();
+}
+
+class Manager extends Employee {
+    double basicSalary;
+    double allowance;
+
+    Manager(String name, double basicSalary, double allowance) {
+        super(name);
+        this.basicSalary = basicSalary;
+        this.allowance = allowance;
+    }
+
+    @Override
+    double calculateSalary() {
+        return basicSalary + allowance;
+    }
+
+    @Override
+    void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Role: Manager");
+        System.out.println("Salary: " + calculateSalary());
+    }
+}
+
+class Programmer extends Employee {
+    double basicSalary;
+    double bonus;
+
+    Programmer(String name, double basicSalary, double bonus) {
+        super(name);
+        this.basicSalary = basicSalary;
+        this.bonus = bonus;
+    }
+
+    @Override
+    double calculateSalary() {
+        return basicSalary + bonus;
+    }
+
+    @Override
+    void displayInfo() {
+        System.out.println("Name: " + name);
+        System.out.println("Role: Programmer");
+        System.out.println("Salary: " + calculateSalary());
+    }
+}
+
+class Program19 {
+    public static void main(String[] args) {
+        Employee manager = new Manager("Aman", 50000, 10000);
+        Employee programmer = new Programmer("Riya", 40000, 5000);
+
+        manager.displayInfo();
+        programmer.displayInfo();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="20" data-title="Write a Java program to create an abstract class Shape3D with abstract methods calculateVolume() and calculateSurfaceArea(). Create subclasses Sphere and Cube that extend the Shape3D class and implement the respective methods to calculate the volume and surface area of each shape.">abstract class Shape3D {
+    abstract double calculateVolume();
+    abstract double calculateSurfaceArea();
+}
+
+class Sphere extends Shape3D {
+    double radius;
+
+    Sphere(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    double calculateVolume() {
+        return (4.0 / 3.0) * Math.PI * radius * radius * radius;
+    }
+
+    @Override
+    double calculateSurfaceArea() {
+        return 4 * Math.PI * radius * radius;
+    }
+}
+
+class Cube extends Shape3D {
+    double side;
+
+    Cube(double side) {
+        this.side = side;
+    }
+
+    @Override
+    double calculateVolume() {
+        return side * side * side;
+    }
+
+    @Override
+    double calculateSurfaceArea() {
+        return 6 * side * side;
+    }
+}
+
+class Program20 {
+    public static void main(String[] args) {
+        Shape3D sphere = new Sphere(5);
+        Shape3D cube = new Cube(4);
+
+        System.out.println("Sphere volume: " + sphere.calculateVolume());
+        System.out.println("Sphere surface area: " + sphere.calculateSurfaceArea());
+
+        System.out.println("Cube volume: " + cube.calculateVolume());
+        System.out.println("Cube surface area: " + cube.calculateSurfaceArea());
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="21" data-title="Write a Java program to create an abstract class Vehicle with abstract methods startEngine() and stopEngine(). Create subclasses Car and Motorcycle that extend the Vehicle class and implement the respective methods to start and stop the engines for each vehicle type.">abstract class Vehicle {
+    abstract void startEngine();
+    abstract void stopEngine();
+}
+
+class Car extends Vehicle {
+    @Override
+    void startEngine() {
+        System.out.println("Car engine started");
+    }
+
+    @Override
+    void stopEngine() {
+        System.out.println("Car engine stopped");
+    }
+}
+
+class Motorcycle extends Vehicle {
+    @Override
+    void startEngine() {
+        System.out.println("Motorcycle engine started");
+    }
+
+    @Override
+    void stopEngine() {
+        System.out.println("Motorcycle engine stopped");
+    }
+}
+
+class Program21 {
+    public static void main(String[] args) {
+        Vehicle car = new Car();
+        Vehicle motorcycle = new Motorcycle();
+
+        car.startEngine();
+        car.stopEngine();
+
+        motorcycle.startEngine();
+        motorcycle.stopEngine();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="22" data-title="Write a Java program to create an abstract class Person with abstract methods eat() and exercise(). Create subclasses Athlete and LazyPerson that extend the Person class and implement the respective methods to describe how each person eats and exercises.">abstract class Person {
+    abstract void eat();
+    abstract void exercise();
+}
+
+class Athlete extends Person {
+    @Override
+    void eat() {
+        System.out.println("Athlete eats a balanced, nutritious diet");
+    }
+
+    @Override
+    void exercise() {
+        System.out.println("Athlete trains regularly");
+    }
+}
+
+class LazyPerson extends Person {
+    @Override
+    void eat() {
+        System.out.println("Lazy person prefers convenient meals");
+    }
+
+    @Override
+    void exercise() {
+        System.out.println("Lazy person rarely exercises");
+    }
+}
+
+class Program22 {
+    public static void main(String[] args) {
+        Person athlete = new Athlete();
+        Person lazyPerson = new LazyPerson();
+
+        athlete.eat();
+        athlete.exercise();
+
+        lazyPerson.eat();
+        lazyPerson.exercise();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="23" data-title="Write a Java program to create an abstract class Instrument with abstract methods play() and tune(). Create subclasses Glockenspiel and Violin that extend the Instrument class and implement the respective methods to play and tune each instrument.">abstract class Instrument {
+    abstract void play();
+    abstract void tune();
+}
+
+class Glockenspiel extends Instrument {
+    @Override
+    void play() {
+        System.out.println("Glockenspiel plays bright metallic notes");
+    }
+
+    @Override
+    void tune() {
+        System.out.println("Glockenspiel bars are adjusted for correct pitch");
+    }
+}
+
+class Violin extends Instrument {
+    @Override
+    void play() {
+        System.out.println("Violin plays melodic string music");
+    }
+
+    @Override
+    void tune() {
+        System.out.println("Violin strings are tuned with the pegs");
+    }
+}
+
+class Program23 {
+    public static void main(String[] args) {
+        Instrument glockenspiel = new Glockenspiel();
+        Instrument violin = new Violin();
+
+        glockenspiel.play();
+        glockenspiel.tune();
+
+        violin.play();
+        violin.tune();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="24" data-title="Write a Java program to create an abstract class Shape2D with abstract methods draw() and resize(). Create subclasses Rectangle and Circle that extend the Shape2D class and implement the respective methods to draw and resize each shape.">abstract class Shape2D {
+    abstract void draw();
+    abstract void resize(double factor);
+}
+
+class Rectangle extends Shape2D {
+    double length;
+    double width;
+
+    Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+
+    @Override
+    void resize(double factor) {
+        if (factor <= 0) {
+            System.out.println("Resize factor must be positive");
+            return;
+        }
+
+        length *= factor;
+        width *= factor;
+        System.out.println("Rectangle resized");
+    }
+}
+
+class Circle extends Shape2D {
+    double radius;
+
+    Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    void draw() {
+        System.out.println("Drawing a circle");
+    }
+
+    @Override
+    void resize(double factor) {
+        if (factor <= 0) {
+            System.out.println("Resize factor must be positive");
+            return;
+        }
+
+        radius *= factor;
+        System.out.println("Circle resized");
+    }
+}
+
+class Program24 {
+    public static void main(String[] args) {
+        Shape2D rectangle = new Rectangle(10, 5);
+        Shape2D circle = new Circle(4);
+
+        rectangle.draw();
+        rectangle.resize(2);
+
+        circle.draw();
+        circle.resize(1.5);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="25" data-title="Write a Java program to create an abstract class Bird with abstract methods fly() and makeSound(). Create subclasses Eagle and Hawk that extend the Bird class and implement the respective methods to describe how each bird flies and makes a sound.">abstract class Bird {
+    abstract void fly();
+    abstract void makeSound();
+}
+
+class Eagle extends Bird {
+    @Override
+    void fly() {
+        System.out.println("Eagle soars high in the sky");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Eagle makes a sharp call");
+    }
+}
+
+class Hawk extends Bird {
+    @Override
+    void fly() {
+        System.out.println("Hawk glides and dives quickly");
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Hawk makes a shrill call");
+    }
+}
+
+class Program25 {
+    public static void main(String[] args) {
+        Bird eagle = new Eagle();
+        Bird hawk = new Hawk();
+
+        eagle.fly();
+        eagle.makeSound();
+
+        hawk.fly();
+        hawk.makeSound();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="26" data-title="Write a Java program to create an abstract class GeometricShape with abstract methods area() and perimeter(). Create subclasses Triangle and Square that extend the GeometricShape class and implement the respective methods to calculate the area and perimeter of each shape.">abstract class GeometricShape {
+    abstract double area();
+    abstract double perimeter();
+}
+
+class Triangle extends GeometricShape {
+    double a;
+    double b;
+    double c;
+
+    Triangle(double a, double b, double c) {
+        if (a <= 0 || b <= 0 || c <= 0 ||
+            a + b <= c || a + c <= b || b + c <= a) {
+            throw new IllegalArgumentException("Invalid triangle sides");
+        }
+
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    @Override
+    double area() {
+        double s = perimeter() / 2;
+        return Math.sqrt(s * (s - a) * (s - b) * (s - c));
+    }
+
+    @Override
+    double perimeter() {
+        return a + b + c;
+    }
+}
+
+class Square extends GeometricShape {
+    double side;
+
+    Square(double side) {
+        if (side <= 0) {
+            throw new IllegalArgumentException("Side must be positive");
+        }
+        this.side = side;
+    }
+
+    @Override
+    double area() {
+        return side * side;
+    }
+
+    @Override
+    double perimeter() {
+        return 4 * side;
+    }
+}
+
+class Program26 {
+    public static void main(String[] args) {
+        GeometricShape triangle = new Triangle(3, 4, 5);
+        GeometricShape square = new Square(4);
+
+        System.out.println("Triangle area: " + triangle.area());
+        System.out.println("Triangle perimeter: " + triangle.perimeter());
+
+        System.out.println("Square area: " + square.area());
+        System.out.println("Square perimeter: " + square.perimeter());
+    }
+}</script>
+
+<script src="js/topic.js"></script>
+</body>
+</html>

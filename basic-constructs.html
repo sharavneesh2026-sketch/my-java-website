@@ -1,0 +1,3056 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic Constructs — Core Java Programming</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-slug="basic-constructs">
+
+<header class="hero hero-sm">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Core Java Programming</a>
+    <span class="sep">›</span>
+    <span>Basic Constructs</span>
+  </nav>
+  <h1>Basic Constructs</h1>
+  <p>139 programs. Click Copy, paste into Notepad, save as <b>Main.java</b>, then run <b>javac Main.java</b> and <b>java Main</b> in cmd.</p>
+</header>
+
+<main class="wrap">
+  <div class="toolbar">
+    <a class="back" href="index.html">← All topics</a>
+    <input id="search" type="search" placeholder="Search programs..." aria-label="Search programs" autocomplete="off">
+    <span id="resultCount" class="result-count"></span>
+  </div>
+  <section id="programList" class="program-list" aria-label="Programs"></section>
+  <p id="noMatch" class="no-match" hidden>No programs match your search.</p>
+</main>
+
+<footer>
+  Core Java Programming · Practice Programs<br>
+  Project by - Avneesh Sharma 7091/24
+</footer>
+
+<!--
+  HOW TO EDIT: each program below is one <script type="text/plain"> block.
+  Change the title in data-title="..." and the code between the tags.
+  Code is written as plain text (no escaping needed). Do not write the closing script tag inside code.
+-->
+<script type="text/plain" class="program-src" data-num="1" data-title="Write a Java program to print ‘Hello World!’ on screen">public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="2" data-title="Write a Java program to print the sum of two numbers">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        System.out.println(a + b);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="3" data-title="Write a Java program that takes two numbers and display the product of two numbers">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double a = sc.nextDouble();
+        double b = sc.nextDouble();
+
+        System.out.println(a * b);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="4" data-title="Write a Java program to print the sum, multiply, subtract, divide and remainder of two numbers">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        System.out.println("Sum: " + (a + b));
+        System.out.println("Multiply: " + (a * b));
+        System.out.println("Subtract: " + (a - b));
+
+        if (b != 0) {
+            System.out.println("Divide: " + ((double) a / b));
+            System.out.println("Remainder: " + (a % b));
+        } else {
+            System.out.println("Division and remainder are undefined.");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="5" data-title="Write a Java program that takes five numbers as input to calculate and print the average of the numbers">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double sum = 0;
+
+        for (int i = 0; i < 5; i++) {
+            sum += sc.nextDouble();
+        }
+
+        System.out.println(sum / 5);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="6" data-title="Write a Java program to swap two variables">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        int temp = a;
+        a = b;
+        b = temp;
+
+        System.out.println(a);
+        System.out.println(b);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="7" data-title="Write a Java program to convert a decimal number to binary numbers">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int number = sc.nextInt();
+
+        if (number >= 0) {
+            System.out.println(Integer.toBinaryString(number));
+        } else {
+            System.out.println("Enter a non-negative integer.");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="8" data-title="Write a Java program to convert a binary number to decimal number">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String binary = sc.next();
+
+        try {
+            if (!binary.matches("[01]+")) {
+                System.out.println("Invalid binary number.");
+            } else {
+                System.out.println(Long.parseLong(binary, 2));
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Binary number is too large.");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="9" data-title="Write a Java program to check whether Java is installed on your computer or not">public class Main {
+    public static void main(String[] args) {
+        System.out.println("Java is running successfully.");
+        System.out.println("Java version: " + System.getProperty("java.version"));
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="10" data-title="Write a Java program and compute the sum of the digits of an integer">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long number = sc.nextLong();
+        number = Math.abs(number);
+
+        int sum = 0;
+
+        while (number > 0) {
+            sum += number % 10;
+            number /= 10;
+        }
+
+        System.out.println(sum);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="11" data-title="Write a Java program to compare two numbers">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        if (a > b) {
+            System.out.println(a + " is greater");
+        } else if (a < b) {
+            System.out.println(b + " is greater");
+        } else {
+            System.out.println("Both numbers are equal");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="12" data-title="Write a Java program to count the letters, spaces, numbers and other characters of an input string">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+        int letters = 0;
+        int spaces = 0;
+        int numbers = 0;
+        int others = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+
+            if (Character.isLetter(ch)) {
+                letters++;
+            } else if (ch == ' ') {
+                spaces++;
+            } else if (Character.isDigit(ch)) {
+                numbers++;
+            } else {
+                others++;
+            }
+        }
+
+        System.out.println("Letters: " + letters);
+        System.out.println("Spaces: " + spaces);
+        System.out.println("Numbers: " + numbers);
+        System.out.println("Other characters: " + others);
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="13" data-title="Write a Java program to print the ascii value of a given character">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        char ch = sc.next().charAt(0);
+
+        System.out.println((int) ch);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="14" data-title="Write a Java program that accepts an integer (n) and computes the value of n+nn+nnn">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long n = sc.nextLong();
+
+        if (n < 0) {
+            System.out.println("Enter a non-negative integer.");
+        } else {
+            try {
+                long nn = Math.addExact(Math.multiplyExact(n, 10), n);
+                long nnn = Math.addExact(Math.multiplyExact(nn, 10), n);
+                long sum = Math.addExact(Math.addExact(n, nn), nnn);
+
+                System.out.println(sum);
+            } catch (ArithmeticException e) {
+                System.out.println("Number is too large.");
+            }
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="15" data-title="Write a Java program to display the system time">import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
+public class Main {
+    public static void main(String[] args) {
+        LocalTime time = LocalTime.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+
+        System.out.println(time.format(formatter));
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="16" data-title="Write a Java program to print the odd numbers from 1 to 20">public class Main {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 20; i += 2) {
+            System.out.println(i);
+        }
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="17" data-title="Write a Java program to print the even numbers from 1 to 20">public class Main {
+    public static void main(String[] args) {
+        for (int i = 2; i <= 20; i += 2) {
+            System.out.println(i);
+        }
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="18" data-title="Write a Java program to convert a string to an integer">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+
+        try {
+            int number = Integer.parseInt(str.trim());
+            System.out.println(number);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid integer.");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="19" data-title="Write a Java program to convert seconds to hour, minute and seconds">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long totalSeconds = sc.nextLong();
+
+        if (totalSeconds < 0) {
+            System.out.println("Enter non-negative seconds.");
+        } else {
+            long hours = totalSeconds / 3600;
+            long minutes = (totalSeconds % 3600) / 60;
+            long seconds = totalSeconds % 60;
+
+            System.out.println(hours + " hours");
+            System.out.println(minutes + " minutes");
+            System.out.println(seconds + " seconds");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="20" data-title="Write a Java program to compute the sum of the first 100 prime numbers">public class Main {
+    public static boolean isPrime(int n) {
+        if (n < 2) {
+            return false;
+        }
+
+        for (int i = 2; i <= n / i; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void main(String[] args) {
+        int count = 0;
+        int number = 2;
+        long sum = 0;
+
+        while (count < 100) {
+            if (isPrime(number)) {
+                sum += number;
+                count++;
+            }
+            number++;
+        }
+
+        System.out.println(sum);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="21" data-title="Write a Java program to swap the first and last elements of an array and create a new array">import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] original = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            original[i] = sc.nextInt();
+        }
+
+        int[] result = Arrays.copyOf(original, n);
+
+        if (n > 1) {
+            int temp = result[0];
+            result[0] = result[n - 1];
+            result[n - 1] = temp;
+        }
+
+        System.out.println(Arrays.toString(result));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="22" data-title="Write a Java program to count the number of even and odd elements in a given array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int even = 0;
+        int odd = 0;
+
+        for (int i = 0; i < n; i++) {
+            int number = sc.nextInt();
+
+            if (number % 2 == 0) {
+                even++;
+            } else {
+                odd++;
+            }
+        }
+
+        System.out.println("Even elements: " + even);
+        System.out.println("Odd elements: " + odd);
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="23" data-title="Write a Java program to compute the square root of an given integer">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int number = sc.nextInt();
+
+        if (number < 0) {
+            System.out.println("Square root of a negative integer is not a real number.");
+        } else {
+            System.out.println(Math.sqrt(number));
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="24" data-title="Write a Java program to check if a positive number is a palindrome or not">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long number = sc.nextLong();
+
+        if (number < 0) {
+            System.out.println("Not a palindrome");
+        } else {
+            long original = number;
+            long reversed = 0;
+
+            while (number > 0) {
+                reversed = reversed * 10 + number % 10;
+                number /= 10;
+            }
+
+            if (original == reversed) {
+                System.out.println("Palindrome");
+            } else {
+                System.out.println("Not a palindrome");
+            }
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="25" data-title="Write a Java program to add two numbers without using any arithmetic operators">import java.util.Scanner;
+
+public class Main {
+    public static int add(int a, int b) {
+        while (b != 0) {
+            int carry = (a & b) << 1;
+            a = a ^ b;
+            b = carry;
+        }
+
+        return a;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        System.out.println(add(a, b));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="26" data-title="Write a Java program to add all the digits of a given positive integer">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long number = sc.nextLong();
+        int sum = 0;
+
+        if (number < 0) {
+            System.out.println("Enter a positive integer.");
+        } else {
+            while (number > 0) {
+                sum += number % 10;
+                number /= 10;
+            }
+
+            System.out.println(sum);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="27" data-title="Java program to find area of circle">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double radius = sc.nextDouble();
+
+        if (radius < 0) {
+            System.out.println("Radius cannot be negative.");
+        } else {
+            double area = Math.PI * radius * radius;
+            System.out.println(area);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="28" data-title="Java Program to find area of rectangle">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double length = sc.nextDouble();
+        double width = sc.nextDouble();
+
+        if (length < 0 || width < 0) {
+            System.out.println("Dimensions cannot be negative.");
+        } else {
+            System.out.println(length * width);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="29" data-title="Java Program to find area of triangle">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double base = sc.nextDouble();
+        double height = sc.nextDouble();
+
+        if (base < 0 || height < 0) {
+            System.out.println("Dimensions cannot be negative.");
+        } else {
+            double area = 0.5 * base * height;
+            System.out.println(area);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="30" data-title="Java Program to find area of equilateral triangle">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double side = sc.nextDouble();
+
+        if (side < 0) {
+            System.out.println("Side cannot be negative.");
+        } else {
+            double area = (Math.sqrt(3) / 4) * side * side;
+            System.out.println(area);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="31" data-title="Java Program to find area of rhombus">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double diagonal1 = sc.nextDouble();
+        double diagonal2 = sc.nextDouble();
+
+        if (diagonal1 < 0 || diagonal2 < 0) {
+            System.out.println("Diagonals cannot be negative.");
+        } else {
+            double area = (diagonal1 * diagonal2) / 2;
+            System.out.println(area);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="32" data-title="Java Program to find area of parallelogram">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double base = sc.nextDouble();
+        double height = sc.nextDouble();
+
+        if (base < 0 || height < 0) {
+            System.out.println("Dimensions cannot be negative.");
+        } else {
+            System.out.println(base * height);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="33" data-title="Java Program to find area of Prism">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double baseArea = sc.nextDouble();
+        double basePerimeter = sc.nextDouble();
+        double height = sc.nextDouble();
+
+        if (baseArea < 0 || basePerimeter < 0 || height < 0) {
+            System.out.println("Dimensions cannot be negative.");
+        } else {
+            double surfaceArea = 2 * baseArea + basePerimeter * height;
+            System.out.println(surfaceArea);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="34" data-title="Java Program to find volume of sphere">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double radius = sc.nextDouble();
+
+        if (radius < 0) {
+            System.out.println("Radius cannot be negative.");
+        } else {
+            double volume = (4.0 / 3.0) * Math.PI * radius * radius * radius;
+            System.out.println(volume);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="35" data-title="Java Program to find volume of cylinder">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double radius = sc.nextDouble();
+        double height = sc.nextDouble();
+
+        if (radius < 0 || height < 0) {
+            System.out.println("Dimensions cannot be negative.");
+        } else {
+            double volume = Math.PI * radius * radius * height;
+            System.out.println(volume);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="36" data-title="Java Program to find volume of cuboid">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double length = sc.nextDouble();
+        double width = sc.nextDouble();
+        double height = sc.nextDouble();
+
+        if (length < 0 || width < 0 || height < 0) {
+            System.out.println("Dimensions cannot be negative.");
+        } else {
+            double volume = length * width * height;
+            System.out.println(volume);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="37" data-title="Java Program to find volume of cone">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double radius = sc.nextDouble();
+        double height = sc.nextDouble();
+
+        if (radius < 0 || height < 0) {
+            System.out.println("Dimensions cannot be negative.");
+        } else {
+            double volume = (Math.PI * radius * radius * height) / 3.0;
+            System.out.println(volume);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="38" data-title="Java program to find surface area of cuboid">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double length = sc.nextDouble();
+        double width = sc.nextDouble();
+        double height = sc.nextDouble();
+
+        if (length < 0 || width < 0 || height < 0) {
+            System.out.println("Dimensions cannot be negative.");
+        } else {
+            double surfaceArea = 2 * (length * width + width * height + height * length);
+            System.out.println(surfaceArea);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="39" data-title="Java program to find surface area of cylinder">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double radius = sc.nextDouble();
+        double height = sc.nextDouble();
+
+        if (radius < 0 || height < 0) {
+            System.out.println("Dimensions cannot be negative.");
+        } else {
+            double surfaceArea = 2 * Math.PI * radius * (radius + height);
+            System.out.println(surfaceArea);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="40" data-title="Java program to find surface area of cube">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double side = sc.nextDouble();
+
+        if (side < 0) {
+            System.out.println("Side cannot be negative.");
+        } else {
+            double surfaceArea = 6 * side * side;
+            System.out.println(surfaceArea);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="41" data-title="Java program to calculate average marks">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of subjects: ");
+        int n = sc.nextInt();
+        double sum = 0;
+
+        if (n <= 0) {
+            System.out.println("Invalid number of subjects.");
+        } else {
+            for (int i = 1; i <= n; i++) {
+                sum += sc.nextDouble();
+            }
+
+            System.out.println("Average marks: " + sum / n);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="42" data-title="Java program to check vowel or consonant">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        char ch = Character.toLowerCase(sc.next().charAt(0));
+
+        if (ch < 'a' || ch > 'z') {
+            System.out.println("Not an alphabet.");
+        } else if ("aeiou".indexOf(ch) >= 0) {
+            System.out.println("Vowel");
+        } else {
+            System.out.println("Consonant");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="43" data-title="Java program to sum of N numbers">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        long sum = 0;
+
+        if (n < 0) {
+            System.out.println("Enter a non-negative number.");
+        } else {
+            for (int i = 1; i <= n; i++) {
+                sum += sc.nextLong();
+            }
+
+            System.out.println("Sum: " + sum);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="44" data-title="Java program to find factorial of any number">import java.util.Scanner;
+import java.math.BigInteger;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        if (n < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            BigInteger factorial = BigInteger.ONE;
+
+            for (int i = 2; i <= n; i++) {
+                factorial = factorial.multiply(BigInteger.valueOf(i));
+            }
+
+            System.out.println(factorial);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="45" data-title="Java Program to calculate electricity bill">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double units = sc.nextDouble();
+        double bill;
+
+        if (units < 0) {
+            System.out.println("Invalid units.");
+        } else {
+            if (units <= 100) {
+                bill = units * 1.5;
+            } else if (units <= 200) {
+                bill = 100 * 1.5 + (units - 100) * 2.5;
+            } else if (units <= 300) {
+                bill = 100 * 1.5 + 100 * 2.5 + (units - 200) * 4;
+            } else {
+                bill = 100 * 1.5 + 100 * 2.5 + 100 * 4 + (units - 300) * 6;
+            }
+
+            System.out.printf("Electricity bill: %.2f%n", bill);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="46" data-title="Java Program To Calculate CGPA Percentage">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double cgpa = sc.nextDouble();
+
+        if (cgpa < 0 || cgpa > 10) {
+            System.out.println("Enter CGPA between 0 and 10.");
+        } else {
+            double percentage = cgpa * 9.5;
+            System.out.println("Percentage: " + percentage + "%");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="47" data-title="Java Program to calculate compound interest">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double principal = sc.nextDouble();
+        double rate = sc.nextDouble();
+        int years = sc.nextInt();
+
+        if (principal < 0 || rate < 0 || years < 0) {
+            System.out.println("Invalid input.");
+        } else {
+            double amount = principal * Math.pow(1 + rate / 100, years);
+            double interest = amount - principal;
+
+            System.out.println("Compound interest: " + interest);
+            System.out.println("Total amount: " + amount);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="48" data-title="Java Program To Calculate Batting Average">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double runs = sc.nextDouble();
+        int dismissals = sc.nextInt();
+
+        if (runs < 0 || dismissals < 0) {
+            System.out.println("Invalid input.");
+        } else if (dismissals == 0) {
+            System.out.println("Batting average is undefined.");
+        } else {
+            System.out.println("Batting average: " + runs / dismissals);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="49" data-title="Java Pogram to Calculate Commission Percentage">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double sales = sc.nextDouble();
+        double commission = sc.nextDouble();
+
+        if (sales <= 0 || commission < 0) {
+            System.out.println("Invalid input.");
+        } else {
+            double percentage = commission / sales * 100;
+            System.out.println("Commission percentage: " + percentage + "%");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="50" data-title="Java Pogram To Find Distance Between Two Points">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double x1 = sc.nextDouble();
+        double y1 = sc.nextDouble();
+        double x2 = sc.nextDouble();
+        double y2 = sc.nextDouble();
+
+        double distance = Math.sqrt(
+            Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2)
+        );
+
+        System.out.println("Distance: " + distance);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="51" data-title="Java Program To Calculate Power Of Number">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double base = sc.nextDouble();
+        int exponent = sc.nextInt();
+
+        if (base == 0 && exponent < 0) {
+            System.out.println("Undefined result.");
+        } else {
+            System.out.println(Math.pow(base, exponent));
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="52" data-title="Write a Java program to take three numbers from the user and print the greatest number">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        System.out.println(Math.max(a, Math.max(b, c)));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="53" data-title="Write a Java program to find the number of days in a month">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int month = sc.nextInt();
+        int year = sc.nextInt();
+        int days;
+
+        if (month < 1 || month > 12) {
+            System.out.println("Invalid month.");
+        } else {
+            switch (month) {
+                case 2:
+                    days = (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) ? 29 : 28;
+                    break;
+                case 4:
+                case 6:
+                case 9:
+                case 11:
+                    days = 30;
+                    break;
+                default:
+                    days = 31;
+            }
+
+            System.out.println(days);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="54" data-title="Write a Java program to test a number is positive or negative">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double number = sc.nextDouble();
+
+        if (number > 0) {
+            System.out.println("Positive");
+        } else if (number < 0) {
+            System.out.println("Negative");
+        } else {
+            System.out.println("Zero");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="55" data-title="Write a Java Program to accept number of week’s day (1-7) and print name of the day">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int day = sc.nextInt();
+
+        switch (day) {
+            case 1:
+                System.out.println("Monday");
+                break;
+            case 2:
+                System.out.println("Tuesday");
+                break;
+            case 3:
+                System.out.println("Wednesday");
+                break;
+            case 4:
+                System.out.println("Thursday");
+                break;
+            case 5:
+                System.out.println("Friday");
+                break;
+            case 6:
+                System.out.println("Saturday");
+                break;
+            case 7:
+                System.out.println("Sunday");
+                break;
+            default:
+                System.out.println("Invalid day number.");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="56" data-title="Write a Java program that takes a year from user and print whether that year is a leap year or not">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int year = sc.nextInt();
+
+        if (year <= 0) {
+            System.out.println("Invalid year.");
+        } else if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+            System.out.println("Leap year");
+        } else {
+            System.out.println("Not a leap year");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="57" data-title="Write a Java program to input 5 numbers from keyboard and find their sum and average">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double sum = 0;
+
+        for (int i = 0; i < 5; i++) {
+            sum += sc.nextDouble();
+        }
+
+        System.out.println("Sum: " + sum);
+        System.out.println("Average: " + sum / 5);
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="58" data-title="Write a program in Java to display the first 5 natural numbers">public class Main {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 5; i++) {
+            System.out.println(i);
+        }
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="59" data-title="Write a java program to check vowel or consonant">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        char ch = Character.toLowerCase(sc.next().charAt(0));
+
+        if (ch < 'a' || ch > 'z') {
+            System.out.println("Not an alphabet.");
+        } else if ("aeiou".indexOf(ch) >= 0) {
+            System.out.println("Vowel");
+        } else {
+            System.out.println("Consonant");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="60" data-title="Write a Java program to display the cube of the number upto given an integer">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        if (n < 1) {
+            System.out.println("Enter a positive integer.");
+        } else {
+            for (int i = 1; i <= n; i++) {
+                System.out.println(i + " " + (long) i * i * i);
+            }
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="61" data-title="Write a Java program to display the n terms of odd natural number and their sum">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        if (n < 0) {
+            System.out.println("Enter a non-negative integer.");
+        } else {
+            long sum = 0;
+
+            for (int i = 1; i <= n; i++) {
+                long odd = 2L * i - 1;
+                System.out.print(odd + " ");
+                sum += odd;
+            }
+
+            System.out.println();
+            System.out.println("Sum: " + sum);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="62" data-title="Write a Java program to display the multiplication table of a given integer">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long number = sc.nextLong();
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(number + " x " + i + " = " + number * i);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="63" data-title="Write a Java program that reads an integer and check whether it is negative, zero, or positive">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int number = sc.nextInt();
+
+        if (number > 0) {
+            System.out.println("Positive");
+        } else if (number < 0) {
+            System.out.println("Negative");
+        } else {
+            System.out.println("Zero");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="64" data-title="Write a Java program that reads an positive integer and count the number of digits">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long number = sc.nextLong();
+
+        if (number <= 0) {
+            System.out.println("Enter a positive integer.");
+        } else {
+            int count = 0;
+
+            while (number > 0) {
+                count++;
+                number /= 10;
+            }
+
+            System.out.println(count);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="65" data-title="Write a Java program that accepts three numbers and check All numbers are equal or not">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double a = sc.nextDouble();
+        double b = sc.nextDouble();
+        double c = sc.nextDouble();
+
+        if (a == b && b == c) {
+            System.out.println("All numbers are equal");
+        } else {
+            System.out.println("All numbers are not equal");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="66" data-title="Write a java program that accepts three numbers from the user and check if numbers are in “increasing” or “decreasing” order.">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double a = sc.nextDouble();
+        double b = sc.nextDouble();
+        double c = sc.nextDouble();
+
+        if (a < b && b < c) {
+            System.out.println("Increasing order");
+        } else if (a > b && b > c) {
+            System.out.println("Decreasing order");
+        } else {
+            System.out.println("Neither increasing nor decreasing");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="67" data-title="Write a Java program that determines a student’s grade">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double marks = sc.nextDouble();
+
+        if (marks < 0 || marks > 100) {
+            System.out.println("Invalid marks.");
+        } else if (marks >= 90) {
+            System.out.println("Grade A");
+        } else if (marks >= 80) {
+            System.out.println("Grade B");
+        } else if (marks >= 70) {
+            System.out.println("Grade C");
+        } else if (marks >= 60) {
+            System.out.println("Grade D");
+        } else if (marks >= 50) {
+            System.out.println("Grade E");
+        } else {
+            System.out.println("Grade F");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="68" data-title="Write a Java program to create a simple calculator">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double a = sc.nextDouble();
+        char operator = sc.next().charAt(0);
+        double b = sc.nextDouble();
+
+        switch (operator) {
+            case '+':
+                System.out.println(a + b);
+                break;
+            case '-':
+                System.out.println(a - b);
+                break;
+            case '*':
+                System.out.println(a * b);
+                break;
+            case '/':
+                if (b == 0) {
+                    System.out.println("Cannot divide by zero.");
+                } else {
+                    System.out.println(a / b);
+                }
+                break;
+            case '%':
+                if (b == 0) {
+                    System.out.println("Cannot calculate remainder with zero.");
+                } else {
+                    System.out.println(a % b);
+                }
+                break;
+            default:
+                System.out.println("Invalid operator.");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="69" data-title="Write a Java program to concatenate two string">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String first = sc.nextLine();
+        String second = sc.nextLine();
+
+        System.out.println(first + second);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="70" data-title="Write a Java program to convert all characters in a string to lowercase">import java.util.Scanner;
+import java.util.Locale;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+
+        System.out.println(str.toLowerCase(Locale.ROOT));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="71" data-title="Write a Java program to convert all characters in a string to uppercase">import java.util.Scanner;
+import java.util.Locale;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+
+        System.out.println(str.toUpperCase(Locale.ROOT));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="72" data-title="Write a Java program to trim a string(remove whitespaces)">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+
+        System.out.println(str.trim());
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="73" data-title="Write a Java program to get a substring of a given string between two specified positions">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+        int start = sc.nextInt();
+        int end = sc.nextInt();
+
+        if (start < 0 || end > str.length() || start >= end) {
+            System.out.println("Invalid positions.");
+        } else {
+            System.out.println(str.substring(start, end));
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="74" data-title="Write a Java program to replace all the ‘d’ characters with ‘f’ characters">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+
+        System.out.println(str.replace('d', 'f'));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="75" data-title="Write a java program to get the length of a given string">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+
+        System.out.println(str.length());
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="76" data-title="Write a java program to print current date and time in the specified format">import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
+public class Main {
+    public static void main(String[] args) {
+        LocalDateTime now = LocalDateTime.now();
+
+        DateTimeFormatter formatter =
+            DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
+
+        System.out.println(now.format(formatter));
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="77" data-title="Write a Java program to get the character at the given index within the String">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+        int index = sc.nextInt();
+
+        if (index < 0 || index >= str.length()) {
+            System.out.println("Invalid index.");
+        } else {
+            System.out.println(str.charAt(index));
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="78" data-title="Write a java program to remove a particular character from a string">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+        char ch = sc.nextLine().charAt(0);
+
+        String result = str.replace(String.valueOf(ch), "");
+
+        System.out.println(result);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="79" data-title="Write a java program to reverse a String">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+
+        String reversed = new StringBuilder(str).reverse().toString();
+
+        System.out.println(reversed);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="80" data-title="Write a java program to remove html tags from a string">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+
+        String result = str.replaceAll("<[^>]*>", "");
+
+        System.out.println(result);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="81" data-title="Write a java program to count total number of lines from a string">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+        int count = 1;
+
+        while (sc.hasNextLine()) {
+            str += "\n" + sc.nextLine();
+        }
+
+        if (str.isEmpty()) {
+            count = 0;
+        } else {
+            count = str.split("\\R", -1).length;
+        }
+
+        System.out.println(count);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="82" data-title="Write a Java program to sum values of an array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        long sum = 0;
+
+        if (n < 0) {
+            System.out.println("Invalid array size.");
+        } else {
+            for (int i = 0; i < n; i++) {
+                sum += sc.nextInt();
+            }
+
+            System.out.println(sum);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="83" data-title="Write a Java program to find the index of an array element">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] array = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+        }
+
+        int target = sc.nextInt();
+        int index = -1;
+
+        for (int i = 0; i < n; i++) {
+            if (array[i] == target) {
+                index = i;
+                break;
+            }
+        }
+
+        System.out.println(index);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="84" data-title="Write a Java program to calculate the average value of array elements">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        if (n <= 0) {
+            System.out.println("Array must contain at least one element.");
+        } else {
+            double sum = 0;
+
+            for (int i = 0; i < n; i++) {
+                sum += sc.nextInt();
+            }
+
+            System.out.println(sum / n);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="85" data-title="Write a Java program to test if an array contains a specific value">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        boolean found = false;
+
+        if (n < 0) {
+            System.out.println("Invalid array size.");
+        } else {
+            int[] array = new int[n];
+
+            for (int i = 0; i < n; i++) {
+                array[i] = sc.nextInt();
+            }
+
+            int target = sc.nextInt();
+
+            for (int value : array) {
+                if (value == target) {
+                    found = true;
+                    break;
+                }
+            }
+
+            System.out.println(found);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="86" data-title="Write a Java program to find the maximum and minimum value of an array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        if (n <= 0) {
+            System.out.println("Array must contain at least one element.");
+        } else {
+            int min = sc.nextInt();
+            int max = min;
+
+            for (int i = 1; i < n; i++) {
+                int value = sc.nextInt();
+
+                if (value < min) {
+                    min = value;
+                }
+
+                if (value > max) {
+                    max = value;
+                }
+            }
+
+            System.out.println("Minimum: " + min);
+            System.out.println("Maximum: " + max);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="87" data-title="Write a Java program to insert an element (specific position) into an array">import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] array = new int[n + 1];
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+        }
+
+        int element = sc.nextInt();
+        int position = sc.nextInt();
+
+        if (position < 0 || position > n) {
+            System.out.println("Invalid position.");
+        } else {
+            for (int i = n; i > position; i--) {
+                array[i] = array[i - 1];
+            }
+
+            array[position] = element;
+            System.out.println(Arrays.toString(array));
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="88" data-title="Write a Java program to reverse an array of integer values">import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] array = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+        }
+
+        for (int i = 0; i < n / 2; i++) {
+            int temp = array[i];
+            array[i] = array[n - 1 - i];
+            array[n - 1 - i] = temp;
+        }
+
+        System.out.println(Arrays.toString(array));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="89" data-title="Write a Java program to find the common elements between two arrays">import java.util.Scanner;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] a = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            a[i] = sc.nextInt();
+        }
+
+        int m = sc.nextInt();
+        int[] b = new int[m];
+
+        for (int i = 0; i < m; i++) {
+            b[i] = sc.nextInt();
+        }
+
+        Set<Integer> second = new LinkedHashSet<>();
+        Set<Integer> common = new LinkedHashSet<>();
+
+        for (int value : b) {
+            second.add(value);
+        }
+
+        for (int value : a) {
+            if (second.contains(value)) {
+                common.add(value);
+            }
+        }
+
+        System.out.println(common);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="90" data-title="Write a Java program to find the duplicate values of an array of integer values">import java.util.Scanner;
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] array = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+        }
+
+        Set<Integer> seen = new LinkedHashSet<>();
+        Set<Integer> duplicates = new LinkedHashSet<>();
+
+        for (int value : array) {
+            if (!seen.add(value)) {
+                duplicates.add(value);
+            }
+        }
+
+        System.out.println(duplicates);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="91" data-title="Write a Java program to convert an array to ArrayList">import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        Integer[] array = new Integer[n];
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+        }
+
+        ArrayList<Integer> list = new ArrayList<>(Arrays.asList(array));
+
+        System.out.println(list);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="92" data-title="Write a Java program to add two matrices of the same size">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int rows = sc.nextInt();
+        int cols = sc.nextInt();
+
+        int[][] a = new int[rows][cols];
+        int[][] b = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                b[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print((a[i][j] + b[i][j]) + " ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="93" data-title="Write a Java program to find second largest number from the array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] array = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+        }
+
+        Integer largest = null;
+        Integer secondLargest = null;
+
+        for (int value : array) {
+            if (largest == null || value > largest) {
+                if (largest != null) {
+                    secondLargest = largest;
+                }
+                largest = value;
+            } else if (value < largest &&
+                    (secondLargest == null || value > secondLargest)) {
+                secondLargest = value;
+            }
+        }
+
+        if (secondLargest == null) {
+            System.out.println("No second distinct largest value.");
+        } else {
+            System.out.println(secondLargest);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="94" data-title="Write a Java program to find second lowest number from the array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] array = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+        }
+
+        Integer smallest = null;
+        Integer secondSmallest = null;
+
+        for (int value : array) {
+            if (smallest == null || value < smallest) {
+                if (smallest != null) {
+                    secondSmallest = smallest;
+                }
+                smallest = value;
+            } else if (value > smallest &&
+                    (secondSmallest == null || value < secondSmallest)) {
+                secondSmallest = value;
+            }
+        }
+
+        if (secondSmallest == null) {
+            System.out.println("No second distinct smallest value.");
+        } else {
+            System.out.println(secondSmallest);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="95" data-title="Write a Java program to find the number of even and odd integers in a given array of integers">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int even = 0;
+        int odd = 0;
+
+        for (int i = 0; i < n; i++) {
+            int value = sc.nextInt();
+
+            if (value % 2 == 0) {
+                even++;
+            } else {
+                odd++;
+            }
+        }
+
+        System.out.println("Even: " + even);
+        System.out.println("Odd: " + odd);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="96" data-title="Write a Java program to get the difference between the largest and smallest values in an array of integers">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        if (n <= 0) {
+            System.out.println("Array must contain at least one element.");
+        } else {
+            int min = sc.nextInt();
+            int max = min;
+
+            for (int i = 1; i < n; i++) {
+                int value = sc.nextInt();
+
+                if (value < min) {
+                    min = value;
+                }
+
+                if (value > max) {
+                    max = value;
+                }
+            }
+
+            System.out.println((long) max - min);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="97" data-title="Write a Java program to segregate all 0s on left side and all 1s on right side of a given array of 0s and 1s">import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] array = new int[n];
+        int zeros = 0;
+        boolean valid = true;
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+
+            if (array[i] == 0) {
+                zeros++;
+            } else if (array[i] != 1) {
+                valid = false;
+            }
+        }
+
+        if (!valid) {
+            System.out.println("Array must contain only 0 and 1.");
+        } else {
+            Arrays.fill(array, 0, zeros, 0);
+            Arrays.fill(array, zeros, n, 1);
+            System.out.println(Arrays.toString(array));
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="98" data-title="Write a Java program to cyclically rotate a given array clockwise by one">import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] array = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+        }
+
+        if (n > 1) {
+            int last = array[n - 1];
+
+            for (int i = n - 1; i > 0; i--) {
+                array[i] = array[i - 1];
+            }
+
+            array[0] = last;
+        }
+
+        System.out.println(Arrays.toString(array));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="99" data-title="java program to print all unique element in an array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] array = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+        }
+
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+
+            for (int j = 0; j < n; j++) {
+                if (array[i] == array[j]) {
+                    count++;
+                }
+            }
+
+            if (count == 1) {
+                System.out.print(array[i] + " ");
+            }
+        }
+
+        System.out.println();
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="100" data-title="Write a Java Program to Sort the Array in an Ascending Order">import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] array = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+        }
+
+        Arrays.sort(array);
+
+        System.out.println(Arrays.toString(array));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="101" data-title="Write a Java Program to Sort the Array in an Descending Order">import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] array = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+        }
+
+        Arrays.sort(array);
+
+        for (int i = n - 1; i >= 0; i--) {
+            System.out.print(array[i] + " ");
+        }
+
+        System.out.println();
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="102" data-title="Write a Java Program to Sort Names in an Alphabetical Order">import java.util.Scanner;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        sc.nextLine();
+
+        String[] names = new String[n];
+
+        for (int i = 0; i < n; i++) {
+            names[i] = sc.nextLine();
+        }
+
+        Arrays.sort(names, String.CASE_INSENSITIVE_ORDER);
+
+        for (String name : names) {
+            System.out.println(name);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="103" data-title="Write a Java Program to Display Transpose Matrix">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int rows = sc.nextInt();
+        int cols = sc.nextInt();
+        int[][] matrix = new int[rows][cols];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int j = 0; j < cols; j++) {
+            for (int i = 0; i < rows; i++) {
+                System.out.print(matrix[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="104" data-title="Write a Java Program to Search Key Elements in an Array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        int[] array = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            array[i] = sc.nextInt();
+        }
+
+        int key = sc.nextInt();
+        int index = -1;
+
+        for (int i = 0; i < n; i++) {
+            if (array[i] == key) {
+                index = i;
+                break;
+            }
+        }
+
+        if (index == -1) {
+            System.out.println("Element not found.");
+        } else {
+            System.out.println("Element found at index " + index);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="105" data-title="Write a Java Program to Accept the Marks of a Student and find Total Marks and Percentage">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int subjects = sc.nextInt();
+        double total = 0;
+        boolean valid = subjects > 0;
+
+        for (int i = 0; i < subjects; i++) {
+            double marks = sc.nextDouble();
+
+            if (marks < 0 || marks > 100) {
+                valid = false;
+            }
+
+            total += marks;
+        }
+
+        if (!valid) {
+            System.out.println("Invalid subjects or marks.");
+        } else {
+            double percentage = total / subjects;
+
+            System.out.println("Total Marks: " + total + " out of " + (subjects * 100));
+            System.out.println("Percentage: " + percentage + "%");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="106" data-title="Write a java program to print numbers from 1 to 10 using loop">public class Main {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(i);
+        }
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="107" data-title="Write a java program to calculate the sum of first 10 natural number using loop">public class Main {
+    public static void main(String[] args) {
+        int sum = 0;
+
+        for (int i = 1; i <= 10; i++) {
+            sum += i;
+        }
+
+        System.out.println(sum);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="108" data-title="Write a Java program to print multiplication table of given number">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int number = sc.nextInt();
+
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(number + " x " + i + " = " + (number * i));
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="109" data-title="Write a Java program to find the factorial value of any number entered through the keyboard">import java.util.Scanner;
+import java.math.BigInteger;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        if (n < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else {
+            BigInteger factorial = BigInteger.ONE;
+
+            for (int i = 2; i <= n; i++) {
+                factorial = factorial.multiply(BigInteger.valueOf(i));
+            }
+
+            System.out.println(factorial);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="110" data-title="Write a Java program that prompts the user to input an integer and then outputs the number with the digits reversed order">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long number = sc.nextLong();
+        long reversed = 0;
+
+        while (number != 0) {
+            long digit = number % 10;
+            reversed = reversed * 10 + digit;
+            number /= 10;
+        }
+
+        System.out.println(reversed);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="111" data-title="Write a Java program that reads a set of integers, and then prints the sum of the even and odd integers using loop">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        long evenSum = 0;
+        long oddSum = 0;
+
+        for (int i = 0; i < n; i++) {
+            int number = sc.nextInt();
+
+            if (number % 2 == 0) {
+                evenSum += number;
+            } else {
+                oddSum += number;
+            }
+        }
+
+        System.out.println("Even sum: " + evenSum);
+        System.out.println("Odd sum: " + oddSum);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="112" data-title="Write a Java program to check whether the number is a prime number or not">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int number = sc.nextInt();
+        boolean prime = number >= 2;
+
+        for (int i = 2; prime && i <= number / i; i++) {
+            if (number % i == 0) {
+                prime = false;
+            }
+        }
+
+        System.out.println(prime ? "Prime number" : "Not a prime number");
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="113" data-title="Write a Java program to calculate HCF of Two given numbers using loop">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long a = sc.nextLong();
+        long b = sc.nextLong();
+
+        a = Math.abs(a);
+        b = Math.abs(b);
+
+        while (b != 0) {
+            long remainder = a % b;
+            a = b;
+            b = remainder;
+        }
+
+        System.out.println(a);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="114" data-title="Write a Java program to enter the numbers till the user wants and at the end it should display the count of positive, negative and zeros">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int positive = 0;
+        int negative = 0;
+        int zeros = 0;
+        String choice;
+
+        do {
+            int number = sc.nextInt();
+
+            if (number > 0) {
+                positive++;
+            } else if (number < 0) {
+                negative++;
+            } else {
+                zeros++;
+            }
+
+            choice = sc.next();
+        } while (choice.equalsIgnoreCase("y"));
+
+        System.out.println("Positive: " + positive);
+        System.out.println("Negative: " + negative);
+        System.out.println("Zeros: " + zeros);
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="115" data-title="Write a Java program to enter the numbers till the user wants and at the end the program should display the largest and smallest numbers entered">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int number = sc.nextInt();
+        int smallest = number;
+        int largest = number;
+        String choice;
+
+        do {
+            number = sc.nextInt();
+
+            if (number < smallest) {
+                smallest = number;
+            }
+
+            if (number > largest) {
+                largest = number;
+            }
+
+            choice = sc.next();
+        } while (choice.equalsIgnoreCase("y"));
+
+        System.out.println("Smallest: " + smallest);
+        System.out.println("Largest: " + largest);
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="116" data-title="Write a Java program to print out all Armstrong numbers between 1 to 600 using loop">public class Main {
+    public static void main(String[] args) {
+        for (int number = 1; number <= 600; number++) {
+            int temp = number;
+            int digits = String.valueOf(number).length();
+            int sum = 0;
+
+            while (temp > 0) {
+                int digit = temp % 10;
+                sum += (int) Math.pow(digit, digits);
+                temp /= 10;
+            }
+
+            if (sum == number) {
+                System.out.println(number);
+            }
+        }
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="117" data-title="Write a java program to count total number of notes in entered amount using loop">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int amount = sc.nextInt();
+        int[] notes = {500, 200, 100, 50, 20, 10, 5, 2, 1};
+        int totalNotes = 0;
+
+        if (amount < 0) {
+            System.out.println("Invalid amount.");
+        } else {
+            for (int note : notes) {
+                int count = amount / note;
+                amount %= note;
+                totalNotes += count;
+            }
+
+            System.out.println(totalNotes);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="118" data-title="Write a Java program to print Fibonacci series of n terms where n is input by user using loop">import java.util.Scanner;
+import java.math.BigInteger;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        BigInteger first = BigInteger.ZERO;
+        BigInteger second = BigInteger.ONE;
+
+        if (n < 0) {
+            System.out.println("Enter a non-negative number.");
+        } else {
+            for (int i = 0; i < n; i++) {
+                System.out.print(first + " ");
+
+                BigInteger next = first.add(second);
+                first = second;
+                second = next;
+            }
+
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="119" data-title="Write a java program to calculate the sum of following series where n is input by user">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int sum = 0;
+
+        for (int i = 1; i <= n; i++) {
+            sum += i;
+        }
+
+        System.out.println("Sum = " + sum);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="120" data-title="Write a Java method to compute the average of three numbers">import java.util.Scanner;
+
+public class Main {
+    public static double average(double a, double b, double c) {
+        return (a + b + c) / 3.0;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double a = sc.nextDouble();
+        double b = sc.nextDouble();
+        double c = sc.nextDouble();
+
+        System.out.println(average(a, b, c));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="121" data-title="Write a Java method to find the smallest number among three numbers">import java.util.Scanner;
+
+public class Main {
+    public static int smallest(int a, int b, int c) {
+        return Math.min(a, Math.min(b, c));
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+
+        System.out.println(smallest(a, b, c));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="122" data-title="Write a Java method to count all words in a string">import java.util.Scanner;
+
+public class Main {
+    public static int countWords(String str) {
+        str = str.trim();
+
+        if (str.isEmpty()) {
+            return 0;
+        }
+
+        return str.split("\\s+").length;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+
+        System.out.println(countWords(str));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="123" data-title="Write a Java method to count all vowels in a string">import java.util.Scanner;
+
+public class Main {
+    public static int countVowels(String str) {
+        int count = 0;
+
+        for (int i = 0; i < str.length(); i++) {
+            char ch = Character.toLowerCase(str.charAt(i));
+
+            if ("aeiou".indexOf(ch) >= 0) {
+                count++;
+            }
+        }
+
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String str = sc.nextLine();
+
+        System.out.println(countVowels(str));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="124" data-title="Write a Java method to compute the sum of the digits in an integer">import java.util.Scanner;
+
+public class Main {
+    public static long sumDigits(long number) {
+        number = Math.abs(number);
+        long sum = 0;
+
+        while (number > 0) {
+            sum += number % 10;
+            number /= 10;
+        }
+
+        return sum;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long number = sc.nextLong();
+
+        System.out.println(sumDigits(number));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="125" data-title="Write a Java method to check whether an year entered by the user is a leap year or not">import java.util.Scanner;
+
+public class Main {
+    public static boolean isLeapYear(int year) {
+        return year > 0 &&
+            (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0));
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int year = sc.nextInt();
+
+        System.out.println(isLeapYear(year));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="126" data-title="Write a Java method to calculate the area of a triangle">import java.util.Scanner;
+
+public class Main {
+    public static double triangleArea(double base, double height) {
+        return base * height / 2.0;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double base = sc.nextDouble();
+        double height = sc.nextDouble();
+
+        if (base < 0 || height < 0) {
+            System.out.println("Invalid dimensions.");
+        } else {
+            System.out.println(triangleArea(base, height));
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="127" data-title="Write a Java method to find the area of a pentagon">import java.util.Scanner;
+
+public class Main {
+    public static double pentagonArea(double side) {
+        return (Math.sqrt(5 * (5 + 2 * Math.sqrt(5))) * side * side) / 4;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double side = sc.nextDouble();
+
+        if (side < 0) {
+            System.out.println("Invalid side length.");
+        } else {
+            System.out.println(pentagonArea(side));
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="128" data-title="Write a Java method to find number is even number or not">import java.util.Scanner;
+
+public class Main {
+    public static boolean isEven(int number) {
+        return number % 2 == 0;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int number = sc.nextInt();
+
+        System.out.println(isEven(number));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="129" data-title="Write a Java method to check numbers is palindrome number or not">import java.util.Scanner;
+
+public class Main {
+    public static boolean isPalindrome(long number) {
+        if (number < 0) {
+            return false;
+        }
+
+        long original = number;
+        long reversed = 0;
+
+        while (number > 0) {
+            reversed = reversed * 10 + number % 10;
+            number /= 10;
+        }
+
+        return original == reversed;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long number = sc.nextLong();
+
+        System.out.println(isPalindrome(number));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="130" data-title="Write a Java method to displays prime numbers between 1 to 20">public class Main {
+    public static boolean isPrime(int number) {
+        if (number < 2) {
+            return false;
+        }
+
+        for (int i = 2; i <= number / i; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static void displayPrimes() {
+        for (int i = 1; i <= 20; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
+
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        displayPrimes();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="131" data-title="Write a Java method to find GCD and LCM of Two Numbers">import java.util.Scanner;
+
+public class Main {
+    public static long gcd(long a, long b) {
+        a = Math.abs(a);
+        b = Math.abs(b);
+
+        while (b != 0) {
+            long temp = b;
+            b = a % b;
+            a = temp;
+        }
+
+        return a;
+    }
+
+    public static long lcm(long a, long b) {
+        if (a == 0 || b == 0) {
+            return 0;
+        }
+
+        return Math.abs((a / gcd(a, b)) * b);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long a = sc.nextLong();
+        long b = sc.nextLong();
+
+        System.out.println("GCD: " + gcd(a, b));
+        System.out.println("LCM: " + lcm(a, b));
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="132" data-title="Write a Java method to find factorial using recursion in java">import java.util.Scanner;
+import java.math.BigInteger;
+
+public class Main {
+    public static BigInteger factorial(int n) {
+        if (n <= 1) {
+            return BigInteger.ONE;
+        }
+
+        return BigInteger.valueOf(n).multiply(factorial(n - 1));
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        if (n < 0) {
+            System.out.println("Factorial is not defined for negative numbers.");
+        } else if (n > 5000) {
+            System.out.println("Number is too large for this recursive program.");
+        } else {
+            System.out.println(factorial(n));
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="133" data-title="Write a Java program to reverse an integer number">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long number = sc.nextLong();
+        long reversed = 0;
+
+        try {
+            while (number != 0) {
+                long digit = number % 10;
+                reversed = Math.addExact(
+                    Math.multiplyExact(reversed, 10), digit
+                );
+                number /= 10;
+            }
+
+            System.out.println(reversed);
+        } catch (ArithmeticException e) {
+            System.out.println("Reversed number is too large.");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="134" data-title="Write a Java program to round a float number to specified decimals">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double number = sc.nextDouble();
+        int decimals = sc.nextInt();
+
+        if (decimals < 0 || decimals > 15) {
+            System.out.println("Enter decimal places between 0 and 15.");
+        } else {
+            System.out.printf("%." + decimals + "f%n", number);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="135" data-title="Write a Java program to test if a double number is an integer">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        double number = sc.nextDouble();
+
+        boolean isInteger = Double.isFinite(number)
+            && number == Math.rint(number);
+
+        System.out.println(isInteger);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="136" data-title="Write a Java program to round up the result of integer division">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        long a = sc.nextLong();
+        long b = sc.nextLong();
+
+        if (b == 0) {
+            System.out.println("Division by zero is not allowed.");
+        } else {
+            long quotient = a / b;
+            long remainder = a % b;
+
+            if (remainder != 0 && ((a ^ b) >= 0)) {
+                quotient++;
+            }
+
+            System.out.println(quotient);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="137" data-title="Write a Java program to convert Roman number to an integer number">import java.util.Scanner;
+
+public class Main {
+    public static int romanValue(char ch) {
+        switch (ch) {
+            case 'I': return 1;
+            case 'V': return 5;
+            case 'X': return 10;
+            case 'L': return 50;
+            case 'C': return 100;
+            case 'D': return 500;
+            case 'M': return 1000;
+            default: return 0;
+        }
+    }
+
+    public static int romanToInteger(String roman) {
+        roman = roman.toUpperCase();
+        int total = 0;
+
+        for (int i = 0; i < roman.length(); i++) {
+            int current = romanValue(roman.charAt(i));
+
+            if (current == 0) {
+                return -1;
+            }
+
+            if (i + 1 < roman.length()
+                    && current < romanValue(roman.charAt(i + 1))) {
+                total -= current;
+            } else {
+                total += current;
+            }
+        }
+
+        return total;
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        String roman = sc.nextLine().trim();
+
+        if (roman.isEmpty()) {
+            System.out.println("Invalid Roman numeral.");
+        } else {
+            int result = romanToInteger(roman);
+
+            if (result == -1) {
+                System.out.println("Invalid Roman numeral.");
+            } else {
+                System.out.println(result);
+            }
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="138" data-title="Write a Java program to convert a float value to absolute value">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        float number = sc.nextFloat();
+
+        System.out.println(Math.abs(number));
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="139" data-title="Write a Java program to accept a float value of number and return a rounded float value">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        float number = sc.nextFloat();
+
+        float rounded = Math.round(number);
+
+        System.out.println(rounded);
+        sc.close();
+    }
+}</script>
+
+<script src="js/topic.js"></script>
+</body>
+</html>

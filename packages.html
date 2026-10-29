@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Packages — Core Java Programming</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-slug="packages">
+
+<header class="hero hero-sm">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Core Java Programming</a>
+    <span class="sep">›</span>
+    <span>Packages</span>
+  </nav>
+  <h1>Packages</h1>
+  <p>10 programs. Click Copy on each file, paste it into Notepad and save it with the file name shown above the code. No package line: <b>javac Name.java</b> then <b>java Name</b>. With a package line: <b>javac -d . *.java</b> then <b>java packagename.ClassName</b> (for example <b>java mypack.Main</b>).</p>
+</header>
+
+<main class="wrap">
+  <div class="toolbar">
+    <a class="back" href="index.html">← All topics</a>
+    <input id="search" type="search" placeholder="Search programs..." aria-label="Search programs" autocomplete="off">
+    <span id="resultCount" class="result-count"></span>
+  </div>
+  <section id="programList" class="program-list" aria-label="Programs"></section>
+  <p id="noMatch" class="no-match" hidden>No programs match your search.</p>
+</main>
+
+<footer>
+  Core Java Programming · Practice Programs<br>
+  Project by - Avneesh Sharma 7091/24
+</footer>
+
+<!--
+  HOW TO EDIT: each program below is one <script type="text/plain"> block.
+  Change the title in data-title="..." and the code between the tags.
+  Code is written as plain text (no escaping needed). Do not write the closing script tag inside code.
+-->
+<script type="text/plain" class="program-src" data-num="1" data-title="Create a Java program to access the `java.util.Date` class through import keyword and print the current date of the system." data-file="First.java">import java.util.Date;
+
+class First {
+    public static void main(String[] args) {
+        Date d = new Date();
+        System.out.println("Current Date: " + d);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="2" data-title="Create a Java program to access the `java.util.Date` class through qualified way and print the current date of the system." data-file="Second.java">class Second {
+    public static void main(String[] args) {
+        java.util.Date d = new java.util.Date();
+        System.out.println("Current Date: " + d);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="3" data-title="Create a Java program to access the `java.util.Date` class through import keyword and print the current date of the system but inherit the Date class." data-file="Third.java">import java.util.Date;
+
+class Third extends Date {
+    public static void main(String[] args) {
+        Third d = new Third();
+        System.out.println("Current Date: " + d);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="4" data-title="Create a Java program to access the `java.util.Date` class through qualified way and print the current date of the system but inherit the Date class." data-file="Fourth.java">class Fourth extends java.util.Date {
+    public static void main(String[] args) {
+        Fourth d = new Fourth();
+        System.out.println("Current Date: " + d);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="5" data-title="Create a Java program to create a package with multiple default classes." data-file="Main.java">package mypack;
+
+class First {
+    void display() {
+        System.out.println("This is First class");
+    }
+}
+
+class Second {
+    void display() {
+        System.out.println("This is Second class");
+    }
+}
+
+class Third {
+    void display() {
+        System.out.println("This is Third class");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        First f = new First();
+        Second s = new Second();
+        Third t = new Third();
+
+        f.display();
+        s.display();
+        t.display();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="6" data-title="Create a Java program to create a package with 4 public classes, create the object in another file and call the function created in those classes." data-file="Main.java">// Save as Main.java
+package mypack;
+
+public class Main {
+    public static void main(String[] args) {
+        A a = new A();
+        B b = new B();
+        C c = new C();
+        D d = new D();
+
+        a.display();
+        b.display();
+        c.display();
+        d.display();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="6" data-title="Create a Java program to create a package with 4 public classes, create the object in another file and call the function created in those classes." data-file="A.java">package mypack;
+
+public class A {
+    public void display() {
+        System.out.println("Class A");
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="6" data-title="Create a Java program to create a package with 4 public classes, create the object in another file and call the function created in those classes." data-file="B.java">package mypack;
+
+public class B {
+    public void display() {
+        System.out.println("Class B");
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="6" data-title="Create a Java program to create a package with 4 public classes, create the object in another file and call the function created in those classes." data-file="C.java">package mypack;
+
+public class C {
+    public void display() {
+        System.out.println("Class C");
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="6" data-title="Create a Java program to create a package with 4 public classes, create the object in another file and call the function created in those classes." data-file="D.java">package mypack;
+
+public class D {
+    public void display() {
+        System.out.println("Class D");
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="7" data-title="Write a Java program to perform employee payroll processing using packages." data-file="Emp.java">package employee;
+
+public class Emp {
+    public String name;
+    public int empid;
+    public String category;
+    public double bpay, hra, da, npay, pf, grosspay, incometax, allowance;
+
+    public void getData(String n, int id, String cat, double bp) {
+        name = n;
+        empid = id;
+        category = cat;
+        bpay = bp;
+    }
+
+    public void calculate() {
+        hra = bpay * 0.20;
+        da = bpay * 0.10;
+        allowance = bpay * 0.05;
+        grosspay = bpay + hra + da + allowance;
+        pf = bpay * 0.12;
+        incometax = grosspay * 0.10;
+        npay = grosspay - pf - incometax;
+    }
+
+    public void display() {
+        System.out.println("Employee Name: " + name);
+        System.out.println("Employee ID: " + empid);
+        System.out.println("Category: " + category);
+        System.out.println("Basic Pay: " + bpay);
+        System.out.println("HRA: " + hra);
+        System.out.println("DA: " + da);
+        System.out.println("Allowance: " + allowance);
+        System.out.println("Gross Pay: " + grosspay);
+        System.out.println("PF: " + pf);
+        System.out.println("Income Tax: " + incometax);
+        System.out.println("Net Pay: " + npay);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="7" data-title="Write a Java program to perform employee payroll processing using packages." data-file="Emppay.java">import employee.Emp;
+
+class Emppay {
+    public static void main(String[] args) {
+        Emp e = new Emp();
+
+        e.getData("Rahul", 101, "Permanent", 30000);
+        e.calculate();
+        e.display();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="8" data-title="Create a Java program to create a package with public class and protected members to be accessed in another class." data-file="Main.java">package mypack;
+
+public class Main {
+    protected int number = 100;
+
+    protected void display() {
+        System.out.println("Number: " + number);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="8" data-title="Create a Java program to create a package with public class and protected members to be accessed in another class." data-file="Test.java">package test;
+
+import mypack.Main;
+
+class Test extends Main {
+    public static void main(String[] args) {
+        Test t = new Test();
+        t.display();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="9" data-title="Create a Java program to create a nested package i.e. `c4.sample` with public class and protected members to be accessed in another class." data-file="Main.java">package c4.sample;
+
+public class Main {
+    protected int number = 200;
+
+    protected void display() {
+        System.out.println("Number: " + number);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="9" data-title="Create a Java program to create a nested package i.e. `c4.sample` with public class and protected members to be accessed in another class." data-file="Test.java">package test;
+
+import c4.sample.Main;
+
+class Test extends Main {
+    public static void main(String[] args) {
+        Test t = new Test();
+        t.display();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="10" data-title="Create a Java program to create a package with public class and public members to be accessed in another class." data-file="Main.java">package mypack;
+
+public class Main {
+    public int number = 300;
+
+    public void display() {
+        System.out.println("Number: " + number);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="10" data-title="Create a Java program to create a package with public class and public members to be accessed in another class." data-file="Test.java">package test;
+
+import mypack.Main;
+
+class Test {
+    public static void main(String[] args) {
+        Main m = new Main();
+        m.display();
+    }
+}</script>
+
+<script src="js/topic.js"></script>
+</body>
+</html>

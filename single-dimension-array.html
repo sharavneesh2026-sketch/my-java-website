@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Single Dimension Array — Core Java Programming</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-slug="single-dimension-array">
+
+<header class="hero hero-sm">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Core Java Programming</a>
+    <span class="sep">›</span>
+    <span>Single Dimension Array</span>
+  </nav>
+  <h1>Single Dimension Array</h1>
+  <p>23 programs. Click Copy, paste into Notepad, save as <b>Main.java</b>, then run <b>javac Main.java</b> and <b>java Main</b> in cmd.</p>
+</header>
+
+<main class="wrap">
+  <div class="toolbar">
+    <a class="back" href="index.html">← All topics</a>
+    <input id="search" type="search" placeholder="Search programs..." aria-label="Search programs" autocomplete="off">
+    <span id="resultCount" class="result-count"></span>
+  </div>
+  <section id="programList" class="program-list" aria-label="Programs"></section>
+  <p id="noMatch" class="no-match" hidden>No programs match your search.</p>
+</main>
+
+<footer>
+  Core Java Programming · Practice Programs<br>
+  Project by - Avneesh Sharma 7091/24
+</footer>
+
+<!--
+  HOW TO EDIT: each program below is one <script type="text/plain"> block.
+  Change the title in data-title="..." and the code between the tags.
+  Code is written as plain text (no escaping needed). Do not write the closing script tag inside code.
+-->
+<script type="text/plain" class="program-src" data-num="1" data-title="Program to copy all elements of one array into another array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        int[] copy = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        for (int i = 0; i < n; i++) {
+            copy[i] = arr[i];
+        }
+
+        System.out.println("Copied array:");
+        for (int value : copy) {
+            System.out.print(value + " ");
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="2" data-title="Program to find the frequency of each element in the array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        boolean[] visited = new boolean[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        for (int i = 0; i < n; i++) {
+            if (visited[i]) {
+                continue;
+            }
+
+            int count = 1;
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] == arr[j]) {
+                    count++;
+                    visited[j] = true;
+                }
+            }
+
+            System.out.println(arr[i] + " occurs " + count + " time(s)");
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="3" data-title="Program to left rotate the elements of an array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        if (n > 0) {
+            int first = arr[0];
+
+            for (int i = 0; i < n - 1; i++) {
+                arr[i] = arr[i + 1];
+            }
+
+            arr[n - 1] = first;
+        }
+
+        System.out.println("Array after left rotation:");
+        for (int value : arr) {
+            System.out.print(value + " ");
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="4" data-title="Program to print the duplicate elements of an array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        boolean found = false;
+
+        for (int i = 0; i < n; i++) {
+            boolean alreadyPrinted = false;
+
+            for (int k = 0; k < i; k++) {
+                if (arr[k] == arr[i]) {
+                    alreadyPrinted = true;
+                    break;
+                }
+            }
+
+            if (alreadyPrinted) {
+                continue;
+            }
+
+            for (int j = i + 1; j < n; j++) {
+                if (arr[i] == arr[j]) {
+                    System.out.print(arr[i] + " ");
+                    found = true;
+                    break;
+                }
+            }
+        }
+
+        if (!found) {
+            System.out.println("No duplicate elements found.");
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="5" data-title="Program to print the elements of an array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.println("Array elements:");
+        for (int value : arr) {
+            System.out.print(value + " ");
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="6" data-title="Program to print the elements of an array in reverse order">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.println("Array in reverse order:");
+        for (int i = n - 1; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="7" data-title="Program to print the elements of an array present on even position">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.println("Elements at even positions:");
+        for (int i = 1; i < n; i += 2) {
+            System.out.print(arr[i] + " ");
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="8" data-title="Program to print the elements of an array present on odd position">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.println("Elements at odd positions:");
+        for (int i = 0; i < n; i += 2) {
+            System.out.print(arr[i] + " ");
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="9" data-title="Program to print the largest element in an array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+
+        if (n <= 0) {
+            System.out.println("Array must contain at least one element.");
+            sc.close();
+            return;
+        }
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int largest = arr[0];
+
+        for (int i = 1; i < n; i++) {
+            if (arr[i] > largest) {
+                largest = arr[i];
+            }
+        }
+
+        System.out.println("Largest element: " + largest);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="10" data-title="Program to print the smallest element in an array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+
+        if (n <= 0) {
+            System.out.println("Array must contain at least one element.");
+            sc.close();
+            return;
+        }
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        int smallest = arr[0];
+
+        for (int i = 1; i < n; i++) {
+            if (arr[i] < smallest) {
+                smallest = arr[i];
+            }
+        }
+
+        System.out.println("Smallest element: " + smallest);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="11" data-title="Program to print the number of elements present in an array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.println("Number of elements: " + arr.length);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="12" data-title="Program to print the sum of all the items of the array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        long sum = 0;
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+            sum += arr[i];
+        }
+
+        System.out.println("Sum of array elements: " + sum);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="13" data-title="Program to right rotate the elements of an array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        if (n > 0) {
+            int last = arr[n - 1];
+
+            for (int i = n - 1; i > 0; i--) {
+                arr[i] = arr[i - 1];
+            }
+
+            arr[0] = last;
+        }
+
+        System.out.println("Array after right rotation:");
+        for (int value : arr) {
+            System.out.print(value + " ");
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="14" data-title="Program to sort the elements of an array in ascending order">import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        Arrays.sort(arr);
+
+        System.out.println("Array in ascending order:");
+        for (int value : arr) {
+            System.out.print(value + " ");
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="15" data-title="Program to sort the elements of an array in descending order">import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        Arrays.sort(arr);
+
+        System.out.println("Array in descending order:");
+        for (int i = n - 1; i >= 0; i--) {
+            System.out.print(arr[i] + " ");
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="16" data-title="Program to Find 3rd Largest Number in an array" data-note="This program finds the third-largest distinct number.">import java.util.Scanner;
+import java.util.TreeSet;
+import java.util.Collections;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        TreeSet<Integer> set = new TreeSet<>(Collections.reverseOrder());
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            set.add(sc.nextInt());
+        }
+
+        if (set.size() < 3) {
+            System.out.println("Third largest distinct element does not exist.");
+        } else {
+            int count = 0;
+            for (int value : set) {
+                count++;
+                if (count == 3) {
+                    System.out.println("Third largest element: " + value);
+                    break;
+                }
+            }
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="17" data-title="Program to Find 2nd Largest Number in an array">import java.util.Scanner;
+import java.util.TreeSet;
+import java.util.Collections;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        TreeSet<Integer> set = new TreeSet<>(Collections.reverseOrder());
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            set.add(sc.nextInt());
+        }
+
+        if (set.size() < 2) {
+            System.out.println("Second largest distinct element does not exist.");
+        } else {
+            int count = 0;
+            for (int value : set) {
+                count++;
+                if (count == 2) {
+                    System.out.println("Second largest element: " + value);
+                    break;
+                }
+            }
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="18" data-title="Program to Find Largest Number in an array">import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+
+        if (n <= 0) {
+            System.out.println("Array must contain at least one element.");
+            sc.close();
+            return;
+        }
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        Arrays.sort(arr);
+        System.out.println("Largest number: " + arr[n - 1]);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="19" data-title="Program to Find 2nd Smallest Number in an array" data-note="This program finds the second-smallest distinct number.">import java.util.Scanner;
+import java.util.TreeSet;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        TreeSet<Integer> set = new TreeSet<>();
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            set.add(sc.nextInt());
+        }
+
+        if (set.size() < 2) {
+            System.out.println("Second smallest distinct element does not exist.");
+        } else {
+            int count = 0;
+            for (int value : set) {
+                count++;
+                if (count == 2) {
+                    System.out.println("Second smallest element: " + value);
+                    break;
+                }
+            }
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="20" data-title="Program to Find Smallest Number in an array">import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+
+        if (n <= 0) {
+            System.out.println("Array must contain at least one element.");
+            sc.close();
+            return;
+        }
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        Arrays.sort(arr);
+        System.out.println("Smallest number: " + arr[0]);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="21" data-title="Program to Remove Duplicate Element in an array">import java.util.Scanner;
+import java.util.LinkedHashSet;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        LinkedHashSet<Integer> set = new LinkedHashSet<>();
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            set.add(sc.nextInt());
+        }
+
+        System.out.println("Array after removing duplicates:");
+        for (int value : set) {
+            System.out.print(value + " ");
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="22" data-title="Program to Print Odd and Even Numbers from an array">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.print("Even numbers: ");
+        for (int value : arr) {
+            if (value % 2 == 0) {
+                System.out.print(value + " ");
+            }
+        }
+
+        System.out.print("\nOdd numbers: ");
+        for (int value : arr) {
+            if (value % 2 != 0) {
+                System.out.print(value + " ");
+            }
+        }
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="23" data-title="How to Sort an Array in Java">import java.util.Arrays;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter array size: ");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+
+        System.out.println("Enter array elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        Arrays.sort(arr);
+
+        System.out.println("Sorted array:");
+        System.out.println(Arrays.toString(arr));
+        sc.close();
+    }
+}</script>
+
+<script src="js/topic.js"></script>
+</body>
+</html>

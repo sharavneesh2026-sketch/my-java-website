@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multi Dimension Array — Core Java Programming</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-slug="multi-dimension-array">
+
+<header class="hero hero-sm">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Core Java Programming</a>
+    <span class="sep">›</span>
+    <span>Multi Dimension Array</span>
+  </nav>
+  <h1>Multi Dimension Array</h1>
+  <p>13 programs. Click Copy, paste into Notepad, save as <b>Main.java</b>, then run <b>javac Main.java</b> and <b>java Main</b> in cmd.</p>
+</header>
+
+<main class="wrap">
+  <div class="toolbar">
+    <a class="back" href="index.html">← All topics</a>
+    <input id="search" type="search" placeholder="Search programs..." aria-label="Search programs" autocomplete="off">
+    <span id="resultCount" class="result-count"></span>
+  </div>
+  <section id="programList" class="program-list" aria-label="Programs"></section>
+  <p id="noMatch" class="no-match" hidden>No programs match your search.</p>
+</main>
+
+<footer>
+  Core Java Programming · Practice Programs<br>
+  Project by - Avneesh Sharma 7091/24
+</footer>
+
+<!--
+  HOW TO EDIT: each program below is one <script type="text/plain"> block.
+  Change the title in data-title="..." and the code between the tags.
+  Code is written as plain text (no escaping needed). Do not write the closing script tag inside code.
+-->
+<script type="text/plain" class="program-src" data-num="1" data-title="Enter the Matrix of Rows and Columns Entered by the User and Print in Matrix Format">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int rows = sc.nextInt();
+        int columns = sc.nextInt();
+
+        if (rows <= 0 || columns <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        int[][] matrix = new int[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="2" data-title="Program to Add Two Matrices">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int rows = sc.nextInt();
+        int columns = sc.nextInt();
+
+        if (rows <= 0 || columns <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        int[][] a = new int[rows][columns];
+        int[][] b = new int[rows][columns];
+        int[][] sum = new int[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                b[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                sum[i][j] = a[i][j] + b[i][j];
+                System.out.print(sum[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="3" data-title="Program to Multiply Two Matrices">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int r1 = sc.nextInt();
+        int c1 = sc.nextInt();
+
+        if (r1 <= 0 || c1 <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        int[][] a = new int[r1][c1];
+
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c1; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        int r2 = sc.nextInt();
+        int c2 = sc.nextInt();
+
+        if (r2 <= 0 || c2 <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        if (c1 != r2) {
+            System.out.println("Matrix multiplication is not possible");
+            sc.close();
+            return;
+        }
+
+        int[][] b = new int[r2][c2];
+        int[][] product = new int[r1][c2];
+
+        for (int i = 0; i < r2; i++) {
+            for (int j = 0; j < c2; j++) {
+                b[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c2; j++) {
+                for (int k = 0; k < c1; k++) {
+                    product[i][j] += a[i][k] * b[k][j];
+                }
+                System.out.print(product[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="4" data-title="Program to Subtract Two Matrices">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int rows = sc.nextInt();
+        int columns = sc.nextInt();
+
+        if (rows <= 0 || columns <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        int[][] a = new int[rows][columns];
+        int[][] b = new int[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                b[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                System.out.print((a[i][j] - b[i][j]) + "\t");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="5" data-title="Program to Determine Whether Two Matrices Are Equal">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int r1 = sc.nextInt();
+        int c1 = sc.nextInt();
+
+        if (r1 <= 0 || c1 <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        int[][] a = new int[r1][c1];
+
+        for (int i = 0; i < r1; i++) {
+            for (int j = 0; j < c1; j++) {
+                a[i][j] = sc.nextInt();
+            }
+        }
+
+        int r2 = sc.nextInt();
+        int c2 = sc.nextInt();
+
+        if (r2 <= 0 || c2 <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        int[][] b = new int[r2][c2];
+
+        for (int i = 0; i < r2; i++) {
+            for (int j = 0; j < c2; j++) {
+                b[i][j] = sc.nextInt();
+            }
+        }
+
+        boolean equal = r1 == r2 && c1 == c2;
+
+        if (equal) {
+            for (int i = 0; i < r1; i++) {
+                for (int j = 0; j < c1; j++) {
+                    if (a[i][j] != b[i][j]) {
+                        equal = false;
+                        break;
+                    }
+                }
+                if (!equal) {
+                    break;
+                }
+            }
+        }
+
+        System.out.println(equal ? "Matrices are equal" : "Matrices are not equal");
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="6" data-title="Program to Display the Lower Triangular Matrix">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        if (n <= 0) {
+            System.out.println("Invalid matrix dimension");
+            sc.close();
+            return;
+        }
+
+        int[][] matrix = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print((j <= i ? matrix[i][j] : 0) + "\t");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="7" data-title="Program to Display the Upper Triangular Matrix">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+
+        if (n <= 0) {
+            System.out.println("Invalid matrix dimension");
+            sc.close();
+            return;
+        }
+
+        int[][] matrix = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print((j >= i ? matrix[i][j] : 0) + "\t");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="8" data-title="Program to Find the Frequency of Odd and Even Numbers in a Matrix">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int rows = sc.nextInt();
+        int columns = sc.nextInt();
+
+        if (rows <= 0 || columns <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        int odd = 0;
+        int even = 0;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                int value = sc.nextInt();
+
+                if (value % 2 == 0) {
+                    even++;
+                } else {
+                    odd++;
+                }
+            }
+        }
+
+        System.out.println("Odd numbers: " + odd);
+        System.out.println("Even numbers: " + even);
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="9" data-title="Program to Find the Sum of Each Row and Each Column of a Matrix">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int rows = sc.nextInt();
+        int columns = sc.nextInt();
+
+        if (rows <= 0 || columns <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        int[][] matrix = new int[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            int sum = 0;
+
+            for (int j = 0; j < columns; j++) {
+                sum += matrix[i][j];
+            }
+
+            System.out.println("Sum of row " + (i + 1) + ": " + sum);
+        }
+
+        for (int j = 0; j < columns; j++) {
+            int sum = 0;
+
+            for (int i = 0; i < rows; i++) {
+                sum += matrix[i][j];
+            }
+
+            System.out.println("Sum of column " + (j + 1) + ": " + sum);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="10" data-title="Program to Find the Transpose of a Given Matrix">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int rows = sc.nextInt();
+        int columns = sc.nextInt();
+
+        if (rows <= 0 || columns <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        int[][] matrix = new int[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int j = 0; j < columns; j++) {
+            for (int i = 0; i < rows; i++) {
+                System.out.print(matrix[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="11" data-title="Program to Determine Whether a Given Matrix Is an Identity Matrix">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int rows = sc.nextInt();
+        int columns = sc.nextInt();
+
+        if (rows <= 0 || columns <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        int[][] matrix = new int[rows][columns];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        boolean identity = rows == columns;
+
+        if (identity) {
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < columns; j++) {
+                    int expected = (i == j) ? 1 : 0;
+
+                    if (matrix[i][j] != expected) {
+                        identity = false;
+                        break;
+                    }
+                }
+
+                if (!identity) {
+                    break;
+                }
+            }
+        }
+
+        System.out.println(identity ? "Identity matrix" : "Not an identity matrix");
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="12" data-title="Program to Transpose a Matrix">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int rows = sc.nextInt();
+        int columns = sc.nextInt();
+
+        if (rows <= 0 || columns <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        int[][] matrix = new int[rows][columns];
+        int[][] transpose = new int[columns][rows];
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                transpose[j][i] = matrix[i][j];
+            }
+        }
+
+        for (int i = 0; i < columns; i++) {
+            for (int j = 0; j < rows; j++) {
+                System.out.print(transpose[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="13" data-title="Program to Determine Whether a Given Matrix Is a Sparse Matrix">import java.util.Scanner;
+
+class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int rows = sc.nextInt();
+        int columns = sc.nextInt();
+
+        if (rows <= 0 || columns <= 0) {
+            System.out.println("Invalid matrix dimensions");
+            sc.close();
+            return;
+        }
+
+        int zeroCount = 0;
+        int totalElements = rows * columns;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (sc.nextInt() == 0) {
+                    zeroCount++;
+                }
+            }
+        }
+
+        if (zeroCount > totalElements / 2) {
+            System.out.println("Sparse matrix");
+        } else {
+            System.out.println("Not a sparse matrix");
+        }
+
+        sc.close();
+    }
+}</script>
+
+<script src="js/topic.js"></script>
+</body>
+</html>

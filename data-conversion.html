@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data Conversion — Core Java Programming</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-slug="data-conversion">
+
+<header class="hero hero-sm">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Core Java Programming</a>
+    <span class="sep">›</span>
+    <span>Data Conversion</span>
+  </nav>
+  <h1>Data Conversion</h1>
+  <p>30 programs. Click Copy, paste into Notepad, save as <b>Main.java</b>, then run <b>javac Main.java</b> and <b>java Main</b> in cmd.</p>
+</header>
+
+<main class="wrap">
+  <div class="toolbar">
+    <a class="back" href="index.html">← All topics</a>
+    <input id="search" type="search" placeholder="Search programs..." aria-label="Search programs" autocomplete="off">
+    <span id="resultCount" class="result-count"></span>
+  </div>
+  <section id="programList" class="program-list" aria-label="Programs"></section>
+  <p id="noMatch" class="no-match" hidden>No programs match your search.</p>
+</main>
+
+<footer>
+  Core Java Programming · Practice Programs<br>
+  Project by - Avneesh Sharma 7091/24
+</footer>
+
+<!--
+  HOW TO EDIT: each program below is one <script type="text/plain"> block.
+  Change the title in data-title="..." and the code between the tags.
+  Code is written as plain text (no escaping needed). Do not write the closing script tag inside code.
+-->
+<script type="text/plain" class="program-src" data-num="1" data-title="How to convert String to int">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+
+        int number = Integer.parseInt(str);
+
+        System.out.println(number);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="2" data-title="How to convert int to String">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+
+        String str = String.valueOf(number);
+
+        System.out.println(str);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="3" data-title="How to convert String to long">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+
+        long number = Long.parseLong(str);
+
+        System.out.println(number);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="4" data-title="How to convert long to String">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long number = sc.nextLong();
+
+        String str = String.valueOf(number);
+
+        System.out.println(str);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="5" data-title="How to convert String to float">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+
+        float number = Float.parseFloat(str);
+
+        System.out.println(number);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="6" data-title="How to convert float to String">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        float number = sc.nextFloat();
+
+        String str = String.valueOf(number);
+
+        System.out.println(str);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="7" data-title="How to convert String to double">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+
+        double number = Double.parseDouble(str);
+
+        System.out.println(number);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="8" data-title="How to convert double to String">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double number = sc.nextDouble();
+
+        String str = String.valueOf(number);
+
+        System.out.println(str);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="9" data-title="How to convert String to Date">import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate date = LocalDate.parse(str, formatter);
+
+        System.out.println(date);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="10" data-title="How to convert Date to String">import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+
+        LocalDate date = LocalDate.parse(str);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+
+        String result = date.format(formatter);
+
+        System.out.println(result);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="11" data-title="How to convert String to char">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+
+        if (!str.isEmpty()) {
+            char ch = str.charAt(0);
+            System.out.println(ch);
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="12" data-title="How to convert char to String">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        char ch = sc.nextLine().charAt(0);
+
+        String str = String.valueOf(ch);
+
+        System.out.println(str);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="13" data-title="How to convert String to Object">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+
+        Object obj = str;
+
+        System.out.println(obj);
+        System.out.println(obj.getClass().getName());
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="14" data-title="How to convert Object to String">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Object obj = sc.nextLine();
+
+        String str = String.valueOf(obj);
+
+        System.out.println(str);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="15" data-title="How to convert int to long">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+
+        long result = number;
+
+        System.out.println(result);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="16" data-title="How to convert long to int">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        long number = sc.nextLong();
+
+        if (number >= Integer.MIN_VALUE && number <= Integer.MAX_VALUE) {
+            int result = (int) number;
+            System.out.println(result);
+        } else {
+            System.out.println("Value is outside the int range.");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="17" data-title="How to convert int to double">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+
+        double result = number;
+
+        System.out.println(result);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="18" data-title="How to convert double to int">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        double number = sc.nextDouble();
+
+        int result = (int) number;
+
+        System.out.println(result);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="19" data-title="How to convert char to int">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        char ch = sc.nextLine().charAt(0);
+
+        int result = (int) ch;
+
+        System.out.println(result);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="20" data-title="How to convert int to char">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+
+        if (number >= Character.MIN_VALUE && number <= Character.MAX_VALUE) {
+            char ch = (char) number;
+            System.out.println(ch);
+        } else {
+            System.out.println("Value is outside the char range.");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="21" data-title="How to convert String to boolean">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+
+        boolean result = Boolean.parseBoolean(str);
+
+        System.out.println(result);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="22" data-title="How to convert boolean to String">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        boolean value = sc.nextBoolean();
+
+        String str = String.valueOf(value);
+
+        System.out.println(str);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="23" data-title="How to convert Date to Timestamp">import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+
+        LocalDateTime dateTime = LocalDateTime.parse(input);
+        Date date = Date.from(
+            dateTime.atZone(ZoneId.systemDefault()).toInstant()
+        );
+
+        Timestamp timestamp = new Timestamp(date.getTime());
+
+        System.out.println(timestamp);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="24" data-title="How to convert Timestamp to Date">import java.sql.Timestamp;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String input = sc.nextLine();
+
+        Timestamp timestamp = Timestamp.valueOf(input);
+        Date date = new Date(timestamp.getTime());
+
+        System.out.println(date);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="25" data-title="How to convert Binary to Decimal">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String binary = sc.nextLine();
+
+        try {
+            int decimal = Integer.parseInt(binary, 2);
+            System.out.println(decimal);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid binary number.");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="26" data-title="How to convert Decimal to Binary">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int decimal = sc.nextInt();
+
+        String binary = Integer.toBinaryString(decimal);
+
+        System.out.println(binary);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="27" data-title="How to convert Hex to Decimal">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String hex = sc.nextLine();
+
+        try {
+            long decimal = Long.parseLong(hex, 16);
+            System.out.println(decimal);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid hexadecimal number.");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="28" data-title="How to convert Decimal to Hex">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int decimal = sc.nextInt();
+
+        String hex = Integer.toHexString(decimal);
+
+        System.out.println(hex.toUpperCase());
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="29" data-title="How to convert Octal to Decimal">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String octal = sc.nextLine();
+
+        try {
+            int decimal = Integer.parseInt(octal, 8);
+            System.out.println(decimal);
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid octal number.");
+        }
+
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="30" data-title="How to convert Decimal to Octal">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int decimal = sc.nextInt();
+
+        String octal = Integer.toOctalString(decimal);
+
+        System.out.println(octal);
+        sc.close();
+    }
+}</script>
+
+<script src="js/topic.js"></script>
+</body>
+</html>

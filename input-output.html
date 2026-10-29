@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Input Output — Core Java Programming</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-slug="input-output">
+
+<header class="hero hero-sm">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="index.html">Core Java Programming</a>
+    <span class="sep">›</span>
+    <span>Input Output</span>
+  </nav>
+  <h1>Input Output</h1>
+  <p>10 programs. Click Copy, paste into Notepad, save as <b>Main.java</b>, then run <b>javac Main.java</b> and <b>java Main</b> in cmd.</p>
+</header>
+
+<main class="wrap">
+  <div class="toolbar">
+    <a class="back" href="index.html">← All topics</a>
+    <input id="search" type="search" placeholder="Search programs..." aria-label="Search programs" autocomplete="off">
+    <span id="resultCount" class="result-count"></span>
+  </div>
+  <section id="programList" class="program-list" aria-label="Programs"></section>
+  <p id="noMatch" class="no-match" hidden>No programs match your search.</p>
+</main>
+
+<footer>
+  Core Java Programming · Practice Programs<br>
+  Project by - Avneesh Sharma 7091/24
+</footer>
+
+<!--
+  HOW TO EDIT: each program below is one <script type="text/plain"> block.
+  Change the title in data-title="..." and the code between the tags.
+  Code is written as plain text (no escaping needed). Do not write the closing script tag inside code.
+-->
+<script type="text/plain" class="program-src" data-num="1" data-title="Enter the character from user using InputStreamReader">import java.io.InputStreamReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        InputStreamReader isr = new InputStreamReader(System.in);
+        BufferedReader br = new BufferedReader(isr);
+        System.out.print("Enter a character: ");
+        char ch = (char) br.read();
+        System.out.println("Entered character: " + ch);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="2" data-title="Enter the string from user using BufferedStreamReader">import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        System.out.print("Enter a string: ");
+        String str = br.readLine();
+        System.out.println("Entered string: " + str);
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="3" data-title="Enter the integer from user using Scanner class">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+        int num = sc.nextInt();
+        System.out.println("Entered integer: " + num);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="4" data-title="Enter the float from user using Scanner class">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a float value: ");
+        float num = sc.nextFloat();
+        System.out.println("Entered float: " + num);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="5" data-title="Enter the double from user using Scanner class">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a double value: ");
+        double num = sc.nextDouble();
+        System.out.println("Entered double: " + num);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="6" data-title="Enter the boolean from user using Scanner class">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter true or false: ");
+        boolean value = sc.nextBoolean();
+        System.out.println("Entered boolean: " + value);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="7" data-title="Enter the short integer from user using Scanner class">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a short integer: ");
+        short num = sc.nextShort();
+        System.out.println("Entered short integer: " + num);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="8" data-title="Enter the long integer from user using Scanner class">import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a long integer: ");
+        long num = sc.nextLong();
+        System.out.println("Entered long integer: " + num);
+        sc.close();
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="9" data-title="Get all characters from the file and display on the screen" data-note="Note: Create a file named `input.txt` in the same folder as `Main.java` and add some text to it before running the program.">import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        try (FileReader fr = new FileReader("input.txt")) {
+            int ch;
+            while ((ch = fr.read()) != -1) {
+                System.out.print((char) ch);
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+    }
+}</script>
+<script type="text/plain" class="program-src" data-num="10" data-title="Get all characters from the file, count number of lines, words, characters and display on the screen">import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Main {
+    public static void main(String[] args) {
+        int lines = 0;
+        int words = 0;
+        int characters = 0;
+
+        try (BufferedReader br = new BufferedReader(new FileReader("input.txt"))) {
+            String line;
+
+            while ((line = br.readLine()) != null) {
+                lines++;
+                characters += line.length();
+
+                String trimmed = line.trim();
+                if (!trimmed.isEmpty()) {
+                    words += trimmed.split("\\s+").length;
+                }
+
+                System.out.println(line);
+            }
+
+            System.out.println("Number of lines: " + lines);
+            System.out.println("Number of words: " + words);
+            System.out.println("Number of characters: " + characters);
+        } catch (IOException e) {
+            System.out.println("Error reading file: " + e.getMessage());
+        }
+    }
+}</script>
+
+<script src="js/topic.js"></script>
+</body>
+</html>
